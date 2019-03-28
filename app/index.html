@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Експертиза будівництва</title>
+
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+    <link href="./font/fontawesome/css/all.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<!-- TODO: Украинский вариант -->
+<body >
+    <div id="main" class="features"></div>
+    <div  class="container">
+
+    
+
+    <div class="row forMobile">
+        <div class="cols col-12">
+            <a id="touch-menu" class="mobile-menu" href="#"><i class="icon-reorder"></i>відкрити меню  <i style="float:right;" class="fas fa-align-justify"></i> </a>
+            <nav>
+                <ul class="menu">
+                    <li   class=""><a title="русский язык" hreflang="/ru" href="ru/index.html"> <i class="fas fa-globe"></i><span>UKR | RU</span></a></li>
+                    <li   class=""><a href="#main"><i class="icon-home"></i>головна</a></li>
+                    <li  class=""><a  href="#play" id='item2'><i class="icon-user"></i>грати</a></li>
+                    <li  class=""><a  href="#ruls"><i class="icon-bullhorn"></i>правила</a></li>
+                    <li  class=""><a href="#aboutMe"><i class="icon-home"></i>про автора</a>
+                <ul>        
+            <nav>            
+        </div>
+    </div>
+
+        
+        
+
+        <div class="row navPanel">
+            <div class="cols col-4">
+                <div class="language">
+                        <i class="fas fa-globe"></i>
+                    <a title="русский язык" hreflang="ru" href="ru/index.html"><span>UKR | RU</span></a>
+                </div>
+            </div>
+            <div class="cols col-8">
+                <nav>
+                    <div>
+                        <nav>
+                            <ul class="menu">
+                                <li class=""><a href="#main"><i class="icon-home"></i>головна</a></li>
+                                <li class=""><a  href="#play"><i class="icon-user"></i>грати </a></li>
+                                <li class=""><a  href="#ruls"><i class="icon-bullhorn"></i>правила</a></li>
+                                <li class=""><a href="#aboutMe"><i class="icon-home"></i>про автора</a>
+                            </ul>
+                        </nav>
+                    </div>           
+                </nav>        
+            </div>
+        </div>
+
+        <div class="row ">
+            <div   class="cols col-12">
+
+                <div class="mainImage">
+                    <img  src="./img/Go.jpg" alt="">
+                </div>
+
+            </div>
+        </div>
+
+        <div id="play" class="row headlines features">
+            <div class="cols col-12">
+                <h2>Поле для гри :</h2>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="cols col-6">
+                <canvas id="game" width="600" height="600"></canvas>  
+            </div>
+            <div class="cols col-6">
+                
+                <div class="row score">
+                    <div class="cols col-6">
+                        <div class="row">
+                            <div class="cols col-12">
+                                <p ><span id='namePlayer1'>Гравець чорних.</span></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="cols col-12">
+                                <div class="circle black"></div>
+                                <div class="scoreInformation">
+                                    <p>захвачена територія:<span id='territoryBlack'>0</span></p>
+                                    <p>захвачені полонені:<span id='captivityWhite'>0</span></p>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="row playerName">
+                            <div class="cols col-12">
+                                <div class="inputBlackPlayer">
+                                    <input type="text" id="player1" placeholder="введіть гравця чорних">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cols col-6">
+                        <div class="row">
+                            <div class="cols col-12">
+                                <p><span id='namePlayer2'>Гравець білих.</span></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="cols col-12">
+                                <div class="circle white"></div>
+                                <div class="scoreInformation">
+                                    <p>захвачена територія:<span id='territoryWhite'>0</span></p>
+                                    <p>захвачені полонені:<span id='captivityBlack'>0</span></p>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="row playerName">
+                            <div class="cols col-12">
+                                <div class="inputBlackPlayer">
+                                    <input type="text" id="player2" placeholder="введіть гравця білих">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row result">
+                    <div class="cols col-12">
+                        <p>наступний хід: </p>
+                        <div id='turnTurn'></div>
+                        <p>Результат:гру завершено. Перемогли : чорні </p>
+                    </div>
+                </div>
+
+                <div class="row makeAmove">
+                    <div class="cols col-12">
+                        
+                        <div class="letterList">
+                            <select  id="lettersSelect">
+                            </select>
+                        </div>
+
+                        <div class="numberList">
+                            <select  id="numbersSelect">
+                            </select>
+                        </div>
+
+                        <button id='makeAmove'>Зробити хід</button>
+
+                    </div>
+                </div>
+
+                <div class="row buttons">
+                    <div class="cols col-3">
+                        <button id='start'>Почати</button>
+                    </div>
+                    <div class="cols col-3">
+                        <button>Пас</button>
+                    </div>
+                    <div class="cols col-3">
+                        <button>Здатися</button>
+                    </div>
+                    <div class="cols col-3">
+                        <button>Реванш</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+       
+        
+        <div id='ruls' class="row headlines features">
+            <div class="cols col-12">
+                <h2 >Правила:</h2>
+            </div>
+        </div>
+
+        
+
+        <div id='aboutMe' class="row headlines features">
+            <div class="cols col-12">
+                 <h2 >Про атора:</h2>
+            </div>
+        </div>
+
+        
+        
+        
+        
+
+
+
+    </div>
+    <script type="module" src="js/model/DataGame.js"></script>
+    <script type="module" src="js/model/Score.js"></script>
+    <script type="module" src="js/model/Territory.js"></script>
+    <script type="module" src="js/model/ScoreLocalStorage.js"></script>
+    <script type="module" src="js/model/BoardLocalStorage.js"></script>
+    <script type="module" src="js/controller/StartHandler.js"></script>
+    <script type="text/javascript" src="js/controller/MakeAMoveHandler.js"></script>
+    <script type="module" src="js/view/CreateSelect.js"></script>
+    <script type="module" src="js/view/drawBoard.js"></script>
+    <script type="module"  src="js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript" ></script>
+    <script src="js/menu.js" type="text/javascript"></script>
+    
+</body>
+</html>

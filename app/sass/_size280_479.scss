@@ -1,0 +1,204 @@
+
+@media only screen and (min-width : 280px) and (max-width : 479px){
+    
+
+    .nameForMobile{display: block;}
+    .nameCompanyDeskTop{display: none;}
+    .addressPanel{display: none;}
+
+    .mainImage{
+        height: 100vh;
+    
+        img{
+            display: none;
+        }
+    
+        background-image: url("./../img/exp.jpg");
+        
+        // background-repeat: no-repeat;
+    
+        .baner-text {
+            font:1em verdana;
+            width: 90%;
+            
+            h2{
+                font-size: 1em;
+                line-height: 1em;
+            }
+        
+            p{
+                font-size: 1em;
+                font-style: italic;
+            }
+        }
+    }
+
+    // заголовки всех разделов 
+    .headlines h2{
+        margin-top:1em;
+        margin-bottom: 0.5em;
+        font-size: 2.5em;
+        width: 80%;
+        display: inline-block;
+        color: #1C65D4;
+    }
+
+    // раздел "услуги"
+
+    .service{
+    
+        img{
+            // display: none;
+            width: 95%;
+            // float: left;
+            // border:2px solid #000;
+            margin: 0.6em; 
+        }
+    
+        h3{
+            font-size: 2em;
+        }
+    
+        ul{
+            width: 85%;
+            // float: left;
+            display: inline-block;
+            text-align: justify;
+
+            margin-left: 0em;
+            padding-left: 0em;
+    
+    
+    
+            li{
+                
+                font-size: 1.5em;
+                padding-top: 0.5em;
+                text-align: justify;
+                list-style-position:inside;
+                padding-left: 0em;
+            }
+    
+    
+        }
+    
+    }
+    
+
+    // подраздел "напрвления экспертизы "
+    .direction{
+    
+        h3{
+            font-size: 2em;
+            margin-top:1em;
+        }
+    
+        ul{
+            width: 80%;
+    
+            li{
+                font-size: 1.5em;
+                padding-top: 0.5em;
+                text-align: justify;
+            }
+        }
+    }
+    
+    
+    // раздел "консалтинг" 
+    .consulting{
+    
+        ul{
+            width: 80%;
+    
+            li{
+                font-size: 1.4em;
+            }
+        }
+    }
+
+    // раздел "документы"
+    
+    .documents{
+
+        div{
+    
+            ul{
+                width: 80%;
+    
+                li{
+                    font-size: 1.4em;
+                    padding-top: 0.5em;
+                }
+            }
+    
+            h4.attention{
+                font-size: 1.4em;
+            }
+    
+            p.attentionText{
+    
+                span{
+                    font-size: 1.2em;
+                    margin-left: 0;
+                    width: 80%;
+                    text-align: justify;
+                
+                }
+    
+            }
+        } 
+        
+    }
+
+
+    // раздел "контакты "
+
+    .contacts{
+
+        .googleMaps{
+            margin-bottom: 2em;
+        }
+
+        iframe.maps{
+            width: 90%;
+        }
+         
+        .adress{
+            width: 90%;
+    
+            h2{
+                font-size: 1.6em;
+            }
+    
+            p{
+                font-size: 1.3em;
+            }
+            
+            .telephoneNumber{
+                margin-bottom: 1em;
+            }
+    
+            i.fa-phone{
+                transform: rotate(160deg);
+            }
+          
+        }
+        
+    }
+
+    // footer
+    .footer{
+        margin-top:2em;
+        height:2em;
+    }
+    
+    
+    
+    
+    
+    
+    
+}
+
+	

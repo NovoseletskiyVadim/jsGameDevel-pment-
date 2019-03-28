@@ -1,0 +1,62 @@
+
+
+.mainImage{
+	position: relative;
+	overflow: hidden;
+	width: 100%; /*Важный параметр. Блоки абсолюта не будут вылазить за этот размер*/
+	height: 100vh;
+
+	img{
+		width: 100%;
+		height: 100vh;
+	}
+
+
+	.baner-text {
+		position: absolute;
+		bottom: 5%;	/*Привязываем к нижней части на случай большого объема текста*/
+		left: 2%;	
+		font:1.5em verdana;
+		padding: 2em; 
+		background:rgba($color: #000000, $alpha: 0.7);
+		width: 50%;
+		color: white;
+
+		img{
+			display:inline-block;
+			width: 16%;
+			height: 4em;
+			margin-bottom: 1em;
+		}
+		
+		h2{
+			text-transform: uppercase;
+			font-size: 1.5em;
+			line-height: 1.5em;
+			margin-bottom: 1em;
+		}
+	
+		p{
+			font-size: 1em;
+			line-height: 1.5em;
+			font-style: italic;
+		}
+	}
+}
+
+
+// .mainImage{
+//     width: 100%;
+//     height: 100vh;
+//     position: relative;
+//     overflow: hidden;
+
+//     background-image: url("./../img/exp.jpg");
+//   	background-position: center;
+//   	background-repeat: no-repeat;
+//  	 background-size: cover;
+
+// }
+
+
+
