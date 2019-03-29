@@ -17,6 +17,8 @@ export default class Score{
         this.phase=dataObject.phase;
         this.namePlayerBlack=namePlayerBlack;
         this.namePlayerWhite=namePlayerWhite;
+        this.lastBlackMove=dataObject.lastBlackMove;
+        this.lastWhiteMove=dataObject.lastWhiteMove;
 
     };
 

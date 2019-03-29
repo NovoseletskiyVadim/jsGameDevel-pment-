@@ -16,7 +16,9 @@ let arrayData={
     'captivityWhite':0,
     'territoryWhite':0,
     'territoryBlack':0,
-    'phase': 'startGame'
+    'phase': 'startGame',
+    'lastBlackMove':'',
+    'lastWhiteMove':''
 
 
 }
