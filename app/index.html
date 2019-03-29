@@ -95,6 +95,9 @@
                                     <p>захвачена територія:<span id='territoryBlack'>0</span></p>
                                     <p>захвачені полонені:<span id='captivityWhite'>0</span></p>
                                 </div>
+                                <div class="lastMove">
+                                    <p id='lastMoveBlack' style="display: none;"></p>
+                                </div>
                             </div>
                         </div> 
                         <div class="row playerName">
@@ -118,6 +121,9 @@
                                     <p>захвачена територія:<span id='territoryWhite'>0</span></p>
                                     <p>захвачені полонені:<span id='captivityBlack'>0</span></p>
                                 </div>
+                                <div class="lastMove">
+                                   <p id='lastMoveWhite' style="display: none;"></p>
+                                </div>
                             </div>
                         </div> 
                         <div class="row playerName">
@@ -131,14 +137,16 @@
                 </div>
 
                 <div class="row result">
-                    <div class="cols col-12">
+                    <div id='move' class="cols col-12" style="display: none">
                         <p>наступний хід: </p>
                         <div id='turnTurn'></div>
-                        <p>Результат:гру завершено. Перемогли : чорні </p>
+                    </div>
+                    <div>
+                        <p id='resultGameOwer' style="display: none" >Результат:гру завершено. Перемогли : чорні </p>
                     </div>
                 </div>
 
-                <div class="row makeAmove">
+                <div id='blockMakeAMove' class="row makeAmove" style="display: none">
                     <div class="cols col-12">
                         
                         <div class="letterList">
@@ -210,6 +218,7 @@
     <script type="module" src="js/controller/PassHandler.js"></script>
     <script type="module" src="js/view/CreateSelect.js"></script>
     <script type="module" src="js/view/drawBoard.js"></script>
+    <script type="module" src="js/view/ViewCurrentDataScore.js"></script>
     <script type="module"  src="js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript" ></script>
     <script src="js/menu.js" type="text/javascript"></script>

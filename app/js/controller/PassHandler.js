@@ -3,9 +3,10 @@
 
 export default class PassHandler{
 
-    constructor(ScoreLocalStorageObject){
+    constructor(ScoreLocalStorageObject,viewCurrentDataScore){
 
         this.ScoreLocalStorageObject=ScoreLocalStorageObject;
+        this.viewCurrentDataScore=viewCurrentDataScore;
         this.move=document.getElementById('pass');
     }
 
@@ -24,17 +25,34 @@ export default class PassHandler{
                 score.lastBlackMove='pass';
                 score.turnTurn='white';
                 that.ScoreLocalStorageObject.saveScore(score);
-                document.getElementById('turnTurn').className='circleTurnTurn white';
+
+                let view=that.viewCurrentDataScore;
+                view.viewScore(that.ScoreLocalStorageObject.outPutScore());
                 
             }
             else{
                 score.lastWhiteMove='pass';
                 score.turnTurn='black';
                 that.ScoreLocalStorageObject.saveScore(score);
-                document.getElementById('turnTurn').className='circleTurnTurn black';
+
+                let view=that.viewCurrentDataScore;
+                view.viewScore(that.ScoreLocalStorageObject.outPutScore());
 
 
             };
+
+            let checkPass=that.ScoreLocalStorageObject.outPutScore()
+
+            if(checkPass.lastBlackMove==='pass'&& checkPass.lastWhiteMove==='pass'){
+
+                checkPass.phase='endGame';
+                that.ScoreLocalStorageObject.saveScore(checkPass);
+                let view=that.viewCurrentDataScore;
+                view.viewScore(checkPass);
+                alert('Игра окончена!!')
+
+            }
+
         }
 
 

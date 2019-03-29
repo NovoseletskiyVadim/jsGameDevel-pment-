@@ -12,6 +12,7 @@ import CreateTerretoryBoard from './model/CreateTerretoryBoard.js'
 import StartInitializesHandler from './controller/StartInitializesHandler.js';
 import MakeAMoveHandler from './controller/MakeAMoveHandler.js';
 import PassHandler from './controller/PassHandler.js';
+import ViewCurrentDataScore from './view/ViewCurrentDataScore.js'
 // drawing play board 
 
 let canvas= document.getElementById('game');
@@ -30,7 +31,7 @@ const createSelect= new CreateSelect(arrayData)
 createSelect.createSelectLetters();
 createSelect.createSelectNumbers();
 
-
+const viewCurrentDataScore = new ViewCurrentDataScore(); 
 
 // initialization data 
 const score = new Score(initializeData);
@@ -45,7 +46,8 @@ const initializes = new StartInitializesHandler(score,
                                                 newScoreLocalStorage,
                                                 createTerretoryBoard,
                                                 boardLocalStorage,
-                                                initializeData );
+                                                initializeData,
+                                                viewCurrentDataScore );
 initializes.initializationPlay();
 
 
@@ -55,8 +57,7 @@ const currentScoreLocalStorage = new ScoreLocalStorage();
 const makeAMoveHandler= new MakeAMoveHandler(currentScoreLocalStorage);
 makeAMoveHandler.makeAmove();
 
-
-const passHandler=new PassHandler(currentScoreLocalStorage);
+const passHandler=new PassHandler(currentScoreLocalStorage,viewCurrentDataScore);
 passHandler.movePass();
 
 
