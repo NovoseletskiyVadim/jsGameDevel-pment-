@@ -10,7 +10,8 @@ import Score from './model/Score.js';
 import BoardLocalStorage from './model/BoardLocalStorage.js'
 import CreateTerretoryBoard from './model/CreateTerretoryBoard.js'
 import StartInitializesHandler from './controller/StartInitializesHandler.js';
-
+import MakeAMoveHandler from './controller/MakeAMoveHandler.js';
+import PassHandler from './controller/PassHandler.js';
 // drawing play board 
 
 let canvas= document.getElementById('game');
@@ -48,6 +49,17 @@ const initializes = new StartInitializesHandler(score,
 initializes.initializationPlay();
 
 
+
+
+const currentScoreLocalStorage = new ScoreLocalStorage(); 
+const makeAMoveHandler= new MakeAMoveHandler(currentScoreLocalStorage);
+makeAMoveHandler.makeAmove();
+
+const passHandler=new PassHandler();
+passHandler.movePass();
+
+
+
 window.onload=function(){
 
     
@@ -74,6 +86,9 @@ window.onload=function(){
 
             document.getElementById('turnTurn').className='circleTurnTurn black';
         
+        }
+        else{
+            document.getElementById('turnTurn').className='circleTurnTurn white';
         }
 
         if(namePlayer1 && namePlayer2){
