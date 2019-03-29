@@ -55,7 +55,8 @@ const currentScoreLocalStorage = new ScoreLocalStorage();
 const makeAMoveHandler= new MakeAMoveHandler(currentScoreLocalStorage);
 makeAMoveHandler.makeAmove();
 
-const passHandler=new PassHandler();
+
+const passHandler=new PassHandler(currentScoreLocalStorage);
 passHandler.movePass();
 
 
