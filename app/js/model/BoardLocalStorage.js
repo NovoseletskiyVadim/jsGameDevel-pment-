@@ -20,12 +20,15 @@ export default class BoardLocalStorage{
 
         if(this.arrayOfObjects!==undefined){
 
+           
+
             const serialArray=JSON.stringify(this.arrayOfObjects);
             window.localStorage.setItem(this.myKey,serialArray);
 
         }
         else{
 
+            
             const serialArray=JSON.stringify(arrayOfObjects);
             window.localStorage.setItem(this.myKey,serialArray);
         }

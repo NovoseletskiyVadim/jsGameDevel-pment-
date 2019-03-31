@@ -8,43 +8,94 @@
 
 */
 
+import SearchMoveField from '../model/SearchMoveField.js';
+import CheckBusyField from '../model/CheckBusyField.js';
+import SaveMoveChanges from '../model/SaveMoveChanges.js';
+import BoardLocalStorage from '../model/BoardLocalStorage.js'
+
 export default class MakeAMoveHandler{
 
 
-    constructor(scoreLocalStorage){
+    constructor( scoreLocalStorage, viewCurrentDataScore ){
 
-        this.scoreLocalStorage=scoreLocalStorage;
-
-        this.move=document.getElementById('makeAmove');
+        this.scoreLocalStorage = scoreLocalStorage;
+        this.viewCurrentDataScore = viewCurrentDataScore;
+        this.searchMoveField = new SearchMoveField();
+        this.checkBusyField = new CheckBusyField()
+        this.saveMoveChanges = new SaveMoveChanges();
+        this.boardLocalStorage = new BoardLocalStorage();
+        this.move = document.getElementById('makeAmove');
     }
 
     makeAmove(){
         
-
         let that=this;
-
-        let selectLetter=document.getElementById('lettersSelect').value;
-        let selectNumber=document.getElementById('numbersSelect').value;
 
         this.move.onclick=function(){
 
             let score = that.scoreLocalStorage.outPutScore();
+            let view = that.viewCurrentDataScore.getInputMoveValue();
+            let reView = that.viewCurrentDataScore;
 
-            if(score.turnTurn==='black'){
+            let letter = view.letterMove;
+            let number = view.numberMove;
 
-                
+
+            let searchObject=that.searchMoveField.searchMoveField(letter,number);
+
+            let checkBusy=that.checkBusyField.checkBusyField(searchObject);
+
+            if(checkBusy!=null){
 
 
-                score.turnTurn='white';
-                that.scoreLocalStorage.saveScore(score);
-                document.getElementById('turnTurn').className='circleTurnTurn white';
+
+                if(score.turnTurn==='black'){
+                    score.turnTurn='white';
+                    score.lastBlackMove=letter+number;
+                    that.scoreLocalStorage.saveScore(score);
+
+                    checkBusy.stateTerritory='black';
+                    that.saveMoveChanges.saveChangeObject(checkBusy);
+
+                    let currentBoard=that.boardLocalStorage.outPutBoard();
+                    reView.viewBoard(currentBoard);
+
+                    let currentScore=that.scoreLocalStorage.outPutScore();
+                    reView.viewScore(currentScore);
+    
+                }
+                else{
+    
+                    score.turnTurn='black';
+                    score.lastWhiteMove=letter+number;
+                    that.scoreLocalStorage.saveScore(score);
+
+                    checkBusy.stateTerritory='white';
+                    that.saveMoveChanges.saveChangeObject(checkBusy);
+
+                    let currentBoard=that.boardLocalStorage.outPutBoard();
+                    reView.viewBoard(currentBoard);
+
+                    checkBusy.stateTerritory='white';
+                    that.saveMoveChanges.saveChangeObject(checkBusy);
+
+
+    
+                    let currentScore=that.scoreLocalStorage.outPutScore();
+                    reView.viewScore(currentScore);
+    
+                    // document.getElementById('turnTurn').className='circleTurnTurn black';
+                };
+
             }
-            else{
 
-                score.turnTurn='black';
-                that.scoreLocalStorage.saveScore(score);
-                document.getElementById('turnTurn').className='circleTurnTurn black';
-            };
+
+
+
+            // TODO: проверка занятости ячейки фишкой 
+
+
+            
 
             console.log('click make a move');
         
@@ -53,5 +104,4 @@ export default class MakeAMoveHandler{
     }
 
 }
-
 

@@ -1,8 +1,14 @@
 
-export default class ViewCurrentDataScore{
 
-    constructor(){
+import {arrayData} from '../model/DataGame.js';
 
+let data=arrayData;
+
+export default class ViewCurrentData{
+
+    constructor(context){
+        this.data=data;
+        this.context=context;
     }
 
     viewScore(ScoreLocalStorageObject){
@@ -44,6 +50,23 @@ export default class ViewCurrentDataScore{
             document.getElementById('territoryWhite').innerText=currentScore.territoryWhite;
             document.getElementById('captivityBlack').innerText=currentScore.captivityBlack
             document.getElementById('captivityWhite').innerText=currentScore.captivityWhite;
+
+           
+            if(currentScore.lastBlackMove!=''||currentScore.lastMoveWhite!=''){
+
+                document.getElementById('lastMoveBlack').style.display="block";
+                document.getElementById('lastMoveBlack').innerText=currentScore.lastBlackMove;
+
+                document.getElementById('lastMoveWhite').style.display="block";
+                document.getElementById('lastMoveWhite').innerText=currentScore.lastWhiteMove;
+
+            }
+            else{
+
+                document.getElementById('lastMoveBlack').style.display="block";
+                document.getElementById('lastMoveWhite').style.display="block";
+
+            }
 
         }
         else if(currentScore.phase==="endGame"){
@@ -98,6 +121,72 @@ export default class ViewCurrentDataScore{
         }
     }
 
+    viewBoard(CurrentDataBoard){
+
+        let that=this;
+        // Radius of each piece
+        let radius = 0.3 * this.data.width/16;
+
+
+        function drawPiece(x, y, colorIn, colorBorder) {
+
+            // Coordinates on canvas : 
+            // x horizontal increasing from left to right
+            // y vertical increasing from top to bottom
+
+            var a = x;
+            var b = y;
+
+            // Draw piece
+            
+            that.context.beginPath();
+            that.context.arc(a, b, radius, 0, 2*Math.PI, false);
+            that.context.fillStyle = colorIn;
+            that.context.fill();
+            that.context.lineWidth = 1;
+            that.context.strokeStyle = colorBorder;
+            that.context.stroke();
+        }
+
+
+        let arr=CurrentDataBoard;
+
+        
+
+        for(let i=0; i<this.data.rows;i++){
+
+            let arr_rows=arr[i];
+
+            for(let j=0; j<this.data.cols;j++){
+                
+                let obj=arr_rows[j];
+                let y=obj.coord_x;
+                let x=obj.coord_y;
+                let colorIn=obj.stateTerritory;
+                let colorBorder;
+
+                if(colorIn=='black'){
+
+                    colorBorder='white';
+                }
+                else{
+
+                    colorBorder='black'
+                }
+
+                if(obj.stateTerritory!=0){
+                   
+                    drawPiece(x,y,colorIn,colorBorder);
+
+                }
+
+
+            }
+        }
+
+
+
+    }
 
 
 }

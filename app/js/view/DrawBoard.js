@@ -1,9 +1,14 @@
 
+
+import {arrayData} from '../model/DataGame.js';
+
+let dataObject=arrayData;
+
 // describes drawing board
 
 export default class DrawingBoard {
 
-    constructor( dataObject,context){
+    constructor(context){
         
         this.context=context;
         this.width=dataObject.width;

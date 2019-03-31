@@ -206,8 +206,7 @@ article, aside, figure, footer, header, hgroup, nav, section {
     height: 20px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
-    border-radius: 10px;
-    float: left; }
+    border-radius: 10px; }
   .score .black {
     background: black; }
   .score .white {
@@ -216,11 +215,19 @@ article, aside, figure, footer, header, hgroup, nav, section {
   .score .scoreInformation {
     margin-top: 1em;
     font-size: 1.3em; }
-  .score .playerName {
+  .score .inputPlayerName {
     margin-top: 3em; }
+  .score .playerName {
+    font-size: 1.7em;
+    font-weight: bold; }
+  .score .lastMove {
+    font-size: 1.8em;
+    font-weight: bold; }
+  .score .inputPlayer input {
+    font-size: 1.2em; }
 
 .result {
-  margin-top: 4em; }
+  margin-top: 2em; }
   .result p {
     margin-bottom: 1em; }
   .result .circleTurnTurn {
@@ -235,6 +242,14 @@ article, aside, figure, footer, header, hgroup, nav, section {
   .result .white {
     border: 1px solid black;
     background: white; }
+  .result .resultGameOwer {
+    color: blue;
+    font-size: 1.5em;
+    font-weight: bold; }
+  .result .move {
+    color: blue;
+    font-size: 1.5em;
+    font-weight: bold; }
 
 .buttons {
   margin-top: 4em; }

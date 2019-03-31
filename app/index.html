@@ -70,7 +70,6 @@
 
         <div id="play" class="row headlines features">
             <div class="cols col-12">
-                <h2>Поле для гри :</h2>
             </div>
         </div>
 
@@ -84,7 +83,7 @@
                 <div class="row score">
                     <div class="cols col-6">
                         <div class="row">
-                            <div class="cols col-12">
+                            <div class="cols col-12 playerName">
                                 <p ><span id='namePlayer1'>Гравець чорних.</span></p>
                             </div>
                         </div>
@@ -96,13 +95,13 @@
                                     <p>захвачені полонені:<span id='captivityWhite'>0</span></p>
                                 </div>
                                 <div class="lastMove">
-                                    <p id='lastMoveBlack' style="display: none;"></p>
+                                    <p id='lastMoveBlack' class="lastMove" style="display: none;"></p>
                                 </div>
                             </div>
                         </div> 
-                        <div class="row playerName">
+                        <div class="row inputPlayerName">
                             <div class="cols col-12">
-                                <div class="inputBlackPlayer">
+                                <div class="inputPlayer">
                                     <input type="text" id="player1" placeholder="введіть гравця чорних">
                                 </div>
                             </div>
@@ -110,7 +109,7 @@
                     </div>
                     <div class="cols col-6">
                         <div class="row">
-                            <div class="cols col-12">
+                            <div class="cols col-12 playerName">
                                 <p><span id='namePlayer2'>Гравець білих.</span></p>
                             </div>
                         </div>
@@ -122,13 +121,13 @@
                                     <p>захвачені полонені:<span id='captivityBlack'>0</span></p>
                                 </div>
                                 <div class="lastMove">
-                                   <p id='lastMoveWhite' style="display: none;"></p>
+                                   <p id='lastMoveWhite' class="lastMove" style="display: none;"></p>
                                 </div>
                             </div>
                         </div> 
-                        <div class="row playerName">
+                        <div class="row inputPlayerName">
                             <div class="cols col-12">
-                                <div class="inputBlackPlayer">
+                                <div class="inputPlayer">
                                     <input type="text" id="player2" placeholder="введіть гравця білих">
                                 </div>
                             </div>
@@ -137,12 +136,12 @@
                 </div>
 
                 <div class="row result">
-                    <div id='move' class="cols col-12" style="display: none">
+                    <div id='move' class="move" class="cols col-12" style="display: none">
                         <p>наступний хід: </p>
                         <div id='turnTurn'></div>
                     </div>
                     <div>
-                        <p id='resultGameOwer' style="display: none" >Результат:гру завершено. Перемогли : чорні </p>
+                        <p id='resultGameOwer' class="resultGameOwer" style="display: none" >Результат:гру завершено. Перемогли : чорні </p>
                     </div>
                 </div>
 
@@ -212,6 +211,8 @@
     <script type="module" src="js/model/Territory.js"></script>
     <script type="module" src="js/model/ScoreLocalStorage.js"></script>
     <script type="module" src="js/model/BoardLocalStorage.js"></script>
+    <script type="module" src="js/model/SearchMoveField.js"></script>
+    <script type="module" src="js/model/SaveMoveChanges.js"></script>
     <script type="module" src="js/controller/StartHandler.js"></script>
     <script type="module" src="js/controller/MakeAMoveHandler.js"></script>
     <script type="module" src="js/controller/MakeAMoveHandler.js"></script>
