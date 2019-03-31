@@ -31,13 +31,16 @@ export default class CreateTerretoryBoard{
                 let letter=this.fieldLetters[j];
                 let coord_x=(i+2)*this.width/20;
                 let coord_y=(j+2)*this.height/20;
+                let arr_i=i;
+                let arr_j=j;
                 let stateTerritory=0;
 
-                let objTerritory=new Territory(letter,number,coord_x,coord_y,stateTerritory);
+                let objTerritory=new Territory(letter,number,coord_x,coord_y,arr_i, arr_j, stateTerritory);
 
                 arr[i][j] = objTerritory;           
             };
         };
+
         return arr;
 
     };

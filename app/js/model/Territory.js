@@ -24,12 +24,14 @@ export default class Territory{
 
     // the constructor takes data for a single cell field
     
-    constructor(letter,number,coord_x,coord_y, stateTerritory ){
+    constructor(letter,number,coord_x,coord_y, arr_i, arr_j, stateTerritory ){
 
         this.letter=letter;
         this.number=number;
         this.coord_x=coord_x;
         this.coord_y=coord_y;
+        this.arr_i=arr_i;
+        this.arr_j=arr_j;
         this.stateTerritory=stateTerritory;
         
     };
