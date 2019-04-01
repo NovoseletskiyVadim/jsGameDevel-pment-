@@ -36,9 +36,26 @@
         font-size: 1.3em;
     
     }
+
+    .inputPlayerName{
+        margin-top: 3em;
+    }
     
     .playerName{
-        margin-top: 3em;
+        font-size: 1.7em;
+        font-weight: bold;
+    }
+
+    .lastMove{
+        font-size: 1.8em;
+        font-weight: bold;
+    }
+
+    .inputPlayer{
+        input{
+
+            font-size: 1.2em;
+        }
     }
 
     
@@ -47,7 +64,7 @@
 }
 
 .result{
-    margin-top: 4em;
+    margin-top: 2em;
 
     p{
         margin-bottom: 1em;
@@ -69,6 +86,18 @@
     .white{
         border: 1px solid black;
         background: white;
+    }
+
+    .resultGameOwer{
+        color: blue;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .move{
+        color: blue;
+        font-size: 1.5em;
+        font-weight: bold;
     }
 }
 

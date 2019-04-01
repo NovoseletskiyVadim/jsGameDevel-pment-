@@ -1,0 +1,12 @@
+
+
+.playField{
+    margin-top: 3em;
+    position: relative;
+	overflow: hidden;
+	width: 100%; /*Важный параметр. Блоки абсолюта не будут вылазить за этот размер*/
+	height: 100vh;
+
+}
+
+

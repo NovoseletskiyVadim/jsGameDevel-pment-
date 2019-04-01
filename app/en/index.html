@@ -7,8 +7,8 @@
     <title>Експертиза будівництва</title>
 
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
-    <link href="./font/fontawesome/css/all.css" rel="stylesheet"> 
-    <link rel="stylesheet" href="css/main.css">
+    <link href="../font/fontawesome/css/all.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <!-- TODO: Украинский вариант -->
 <body >
@@ -39,7 +39,7 @@
             <div class="cols col-4">
                 <div class="language">
                         <i class="fas fa-globe"></i>
-                    <a title="english language" hreflang="en" href="en/index.html"><span>УКР | EN</span></a>
+                        <a title="english language" hreflang="uk" href="../index.html"><span>УКР | EN</span></a>
                 </div>
             </div>
             <div class="cols col-8">
@@ -47,10 +47,10 @@
                     <div>
                         <nav>
                             <ul class="menu">
-                                <li class=""><a href="#main"><i class="icon-home"></i>головна</a></li>
-                                <li class=""><a  href="#play"><i class="icon-user"></i>грати </a></li>
-                                <li class=""><a  href="#ruls"><i class="icon-bullhorn"></i>правила</a></li>
-                                <li class=""><a href="#aboutMe"><i class="icon-home"></i>про автора</a>
+                                <li class=""><a href="#main"><i class="icon-home"></i>main</a></li>
+                                <li class=""><a  href="#play"><i class="icon-user"></i>play </a></li>
+                                <li class=""><a  href="#ruls"><i class="icon-bullhorn"></i>regulations</a></li>
+                                <li class=""><a href="#aboutMe"><i class="icon-home"></i>about author</a>
                             </ul>
                         </nav>
                     </div>           
@@ -62,7 +62,7 @@
             <div   class="cols col-12">
 
                 <div class="mainImage">
-                    <img  src="./img/Go.jpg" alt="">
+                    <img  src="../img/Go.jpg" alt="">
                 </div>
 
             </div>
@@ -84,15 +84,15 @@
                     <div class="cols col-6">
                         <div class="row">
                             <div class="cols col-12 playerName">
-                                <p ><span id='namePlayer1'>Гравець чорних.</span></p>
+                                <p ><span id='namePlayer1'>Player Black.</span></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="cols col-12">
                                 <div class="circle black"></div>
                                 <div class="scoreInformation">
-                                    <p>захвачена територія:<span id='territoryBlack'>0</span></p>
-                                    <p>захвачені полонені:<span id='captivityWhite'>0</span></p>
+                                    <p>captured territory:<span id='territoryBlack'>0</span></p>
+                                    <p>captured prisoners:<span id='captivityWhite'>0</span></p>
                                 </div>
                                 <div class="lastMove">
                                     <p id='lastMoveBlack' class="lastMove" style="display: none;"></p>
@@ -102,7 +102,7 @@
                         <div class="row inputPlayerName">
                             <div class="cols col-12">
                                 <div class="inputPlayer">
-                                    <input type="text" id="player1" placeholder="введіть гравця чорних">
+                                    <input type="text" id="player1" placeholder="input black player">
                                 </div>
                             </div>
                         </div>
@@ -110,15 +110,15 @@
                     <div class="cols col-6">
                         <div class="row">
                             <div class="cols col-12 playerName">
-                                <p><span id='namePlayer2'>Гравець білих.</span></p>
+                                <p><span id='namePlayer2'>Player White.</span></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="cols col-12">
                                 <div class="circle white"></div>
                                 <div class="scoreInformation">
-                                    <p>захвачена територія:<span id='territoryWhite'>0</span></p>
-                                    <p>захвачені полонені:<span id='captivityBlack'>0</span></p>
+                                    <p>captured territory:<span id='territoryWhite'>0</span></p>
+                                    <p>captured prisoners:<span id='captivityBlack'>0</span></p>
                                 </div>
                                 <div class="lastMove">
                                    <p id='lastMoveWhite' class="lastMove" style="display: none;"></p>
@@ -128,7 +128,7 @@
                         <div class="row inputPlayerName">
                             <div class="cols col-12">
                                 <div class="inputPlayer">
-                                    <input type="text" id="player2" placeholder="введіть гравця білих">
+                                    <input type="text" id="player2" placeholder="input white player">
                                 </div>
                             </div>
                         </div>
@@ -137,11 +137,11 @@
 
                 <div class="row result">
                     <div id='move' class="move" class="cols col-12" style="display: none">
-                        <p>наступний хід: </p>
+                        <p>next move: </p>
                         <div id='turnTurn'></div>
                     </div>
                     <div>
-                        <p id='resultGameOwer' class="resultGameOwer" style="display: none" >Результат:гру завершено. Перемогли : чорні </p>
+                        <p id='resultGameOwer' class="resultGameOwer" style="display: none" >Result: The game is over. Won: black </p>
                     </div>
                 </div>
 
@@ -158,23 +158,23 @@
                             </select>
                         </div>
 
-                        <button id='makeAmove'>Зробити хід</button>
+                        <button id='makeAmove'>make a move</button>
 
                     </div>
                 </div>
 
                 <div class="row buttons">
                     <div class="cols col-3">
-                        <button id='start'>Почати</button>
+                        <button id='start'>start</button>
                     </div>
                     <div class="cols col-3">
-                        <button id='pass'>Пас</button>
+                        <button id='pass'>pass</button>
                     </div>
                     <div class="cols col-3">
-                        <button>Здатися</button>
+                        <button>give up</button>
                     </div>
                     <div class="cols col-3">
-                        <button>Реванш</button>
+                        <button>revenge</button>
                     </div>
                 </div>
 
@@ -206,23 +206,23 @@
 
 
     </div>
-    <script type="module" src="js/model/DataGame.js"></script>
-    <script type="module" src="js/model/Score.js"></script>
-    <script type="module" src="js/model/Territory.js"></script>
-    <script type="module" src="js/model/ScoreLocalStorage.js"></script>
-    <script type="module" src="js/model/BoardLocalStorage.js"></script>
-    <script type="module" src="js/model/SearchMoveField.js"></script>
-    <script type="module" src="js/model/SaveMoveChanges.js"></script>
-    <script type="module" src="js/controller/StartHandler.js"></script>
-    <script type="module" src="js/controller/MakeAMoveHandler.js"></script>
-    <script type="module" src="js/controller/MakeAMoveHandler.js"></script>
-    <script type="module" src="js/controller/PassHandler.js"></script>
-    <script type="module" src="js/view/CreateSelect.js"></script>
-    <script type="module" src="js/view/drawBoard.js"></script>
-    <script type="module" src="js/view/ViewCurrentDataScore.js"></script>
-    <script type="module"  src="js/main.js"></script>
+    <script type="module" src="../js/model/DataGame.js"></script>
+    <script type="module" src="../js/model/Score.js"></script>
+    <script type="module" src="../js/model/Territory.js"></script>
+    <script type="module" src="../js/model/ScoreLocalStorage.js"></script>
+    <script type="module" src="../js/model/BoardLocalStorage.js"></script>
+    <script type="module" src="../js/model/SearchMoveField.js"></script>
+    <script type="module" src="../js/model/SaveMoveChanges.js"></script>
+    <script type="module" src="../js/controller/StartHandler.js"></script>
+    <script type="module" src="../js/controller/MakeAMoveHandler.js"></script>
+    <script type="module" src="../js/controller/MakeAMoveHandler.js"></script>
+    <script type="module" src="../js/controller/PassHandler.js"></script>
+    <script type="module" src="../js/view/CreateSelect.js"></script>
+    <script type="module" src="../js/view/drawBoard.js"></script>
+    <script type="module" src="../js/view/ViewCurrentDataScore.js"></script>
+    <script type="module"  src="../js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript" ></script>
-    <script src="js/menu.js" type="text/javascript"></script>
+    <script src="../js/menu.js" type="text/javascript"></script>
     
 </body>
 </html>
