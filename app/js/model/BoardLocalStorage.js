@@ -43,11 +43,20 @@ export default class BoardLocalStorage{
 
         const returnArrayFromLocalStorage=JSON.parse(window.localStorage.getItem(this.myKey));
 
-        for (let i=0; i<=returnArrayFromLocalStorage.length-1;i++){
-            renderArray[i]=returnArrayFromLocalStorage[i];
-        };
+        if(returnArrayFromLocalStorage){
+            for (let i=0; i<=returnArrayFromLocalStorage.length-1;i++){
+                renderArray[i]=returnArrayFromLocalStorage[i];
+            };
+    
+            return renderArray;
 
-        return renderArray;
+        }
+        else{
+            
+            return null;
+        }
+
+        
 
     };
 

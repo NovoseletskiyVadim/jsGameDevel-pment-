@@ -1,21 +1,25 @@
-
-
 import {arrayData} from '../model/DataGame.js';
+import DrawingBoard from './DrawBoard.js';
 
 let data=arrayData;
 
 export default class ViewCurrentData{
 
-    constructor(context){
+    constructor( context ){
+
         this.data=data;
         this.context=context;
+        this.drawingBoard=new DrawingBoard( context );
+        
     }
 
     viewScore(ScoreLocalStorageObject){
 
-        let currentScore=ScoreLocalStorageObject
-
-        if(currentScore.turnTurn=='black'){
+        let currentScore=ScoreLocalStorageObject;
+        if (currentScore==null){
+            return null;
+        }
+        else if(currentScore.turnTurn=='black'){
 
             document.getElementById('turnTurn').className='circleTurnTurn black'; 
 
@@ -66,32 +70,38 @@ export default class ViewCurrentData{
                 document.getElementById('lastMoveBlack').style.display="block";
                 document.getElementById('lastMoveWhite').style.display="block";
 
-            }
+            };
 
         }
         else if(currentScore.phase==="endGame"){
 
+            document.getElementById('namePlayer1').innerText='';
+            document.getElementById('namePlayer2').innerText='';
             
             document.getElementById('player1').style.display='block';
             document.getElementById('player2').style.display='block';
-            document.getElementById('resultGameOwer').style.display='block';
 
-            document.getElementById('namePlayer1').innerText='Гравець чорних.';
-            document.getElementById('namePlayer2').innerText='Гравець білих';
-            
             document.getElementById('move').style.display='none';
             document.getElementById('blockMakeAMove').style.display='none';
-
 
             document.getElementById('lastMoveWhite').innerText='';
             document.getElementById('lastMoveBlack').innerText='';
 
 
-            document.getElementById('territoryBlack').innerText='0';
-            document.getElementById('territoryWhite').innerText='0';
-            document.getElementById('captivityBlack').innerText='0';
-            document.getElementById('captivityWhite').innerText='0';
-        
+
+            document.getElementById('resultGameOwer').style.display='block';
+
+            if(currentScore.victory=='black'){
+
+                document.getElementById('victory').className='circleTurnTurn black';
+
+            }
+            else{
+
+                document.getElementById('victory').className='circleTurnTurn white'; 
+
+            };
+                   
         };
 
     };
@@ -124,8 +134,9 @@ export default class ViewCurrentData{
     viewBoard(CurrentDataBoard){
 
         let that=this;
+
         // Radius of each piece
-        let radius = 0.3 * this.data.width/16;
+        let radius = 0.2 * this.data.width/16;
 
 
         function drawPiece(x, y, colorIn, colorBorder) {
@@ -146,47 +157,46 @@ export default class ViewCurrentData{
             that.context.lineWidth = 1;
             that.context.strokeStyle = colorBorder;
             that.context.stroke();
+        };
+
+
+        if(CurrentDataBoard==null){
+
+            this.drawingBoard.drawingBoard(this.context);
+            
         }
+        else{
 
+            let arr=CurrentDataBoard;
+            
+            for(let i=0; i<this.data.rows;i++){
 
-        let arr=CurrentDataBoard;
+                let arr_rows=arr[i];
 
-        
+                for(let j=0; j<this.data.cols;j++){
+                    
+                    let obj=arr_rows[j];
+                    let y=obj.coord_x;
+                    let x=obj.coord_y;
+                    let colorIn=obj.stateTerritory;
+                    let colorBorder;
 
-        for(let i=0; i<this.data.rows;i++){
+                    if(colorIn=='black'){
 
-            let arr_rows=arr[i];
+                        colorBorder='white';
+                    }
+                    else{
 
-            for(let j=0; j<this.data.cols;j++){
-                
-                let obj=arr_rows[j];
-                let y=obj.coord_x;
-                let x=obj.coord_y;
-                let colorIn=obj.stateTerritory;
-                let colorBorder;
+                        colorBorder='black'
+                    };
 
-                if(colorIn=='black'){
+                    if(obj.stateTerritory!=0){
+                    
+                        drawPiece(x,y,colorIn,colorBorder);
 
-                    colorBorder='white';
-                }
-                else{
-
-                    colorBorder='black'
-                }
-
-                if(obj.stateTerritory!=0){
-                   
-                    drawPiece(x,y,colorIn,colorBorder);
-
-                }
-
-
-            }
-        }
-
-
-
-    }
-
-
-}
+                    };
+                };
+            };
+        };
+    };
+};

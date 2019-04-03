@@ -1,4 +1,5 @@
 // Describes event handler click button "Start"
+import DrawingBoard from '../view/DrawBoard.js';
 
 export default class StartInitializesHandler{
 
@@ -8,7 +9,8 @@ export default class StartInitializesHandler{
         createTerretoryBoardObject,
         boardLocalStorageObject,
         dataObject,
-        viewCurrentDataScoreObject
+        viewCurrentDataScoreObject,
+        context
 
     ){
 
@@ -18,6 +20,10 @@ export default class StartInitializesHandler{
         this.boardLocalStorage=boardLocalStorageObject;
         this.objectData=dataObject;
         this.view=viewCurrentDataScoreObject;
+        this.context=context;
+
+        this.drawingBoard=new DrawingBoard();
+        
         this.start=document.getElementById('start');
 
     }
@@ -28,8 +34,6 @@ export default class StartInitializesHandler{
         let that=this;
 
         this.start.onclick=function(){
-
-            console.log("click start is ok")
 
             let checkResult=that.scoreLocalStorage.outPutScore();
         
@@ -80,12 +84,11 @@ export default class StartInitializesHandler{
                 
             }
             else if(checkResult.phase==='endGame'){
+
                 
                 that.view.viewScore(that.scoreLocalStorage.outPutScore());  
 
-                console.log('end game');
                 let getNamePlayerValue=that.view.getInputNameValue();
-                console.log('getNamePlayerValue=',getNamePlayerValue);
 
                 let namePlayerBlack=getNamePlayerValue.namePlayerBlack;
                 let namePlayerWhite=getNamePlayerValue.namePlayerWhite;
@@ -107,23 +110,26 @@ export default class StartInitializesHandler{
 
                         that.score.namePlayerBlack=namePlayerBlack;
                         that.score.namePlayerWhite=namePlayerWhite;
-                        that.scoreLocalStorage.saveScore(that.score);
+                        that.scoreLocalStorage.saveScore( that.score );
         
-                        that.boardLocalStorage.saveBoard(arrayObjects);
+                        that.boardLocalStorage.saveBoard( arrayObjects );
         
                         let scoreInfo=that.scoreLocalStorage.outPutScore();
-                        
-                        that.view.viewScore(scoreInfo);
-        
+                        let board=that.boardLocalStorage.outPutBoard();
+
+                        that.drawingBoard.reDrawingBoard(that.context);               
+                        that.view.viewScore( scoreInfo );
+                        that.view.viewBoard( board );
+
                         console.log('save new score in the local storage ');
                     }
                     else{
                         console.error('error save new score in local storage');
                     };
                 };
+            };             
 
-            };
-             
+            console.log("click start is ok")
         };
     };
 };

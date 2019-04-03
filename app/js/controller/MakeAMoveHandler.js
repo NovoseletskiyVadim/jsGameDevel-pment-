@@ -24,6 +24,7 @@ export default class MakeAMoveHandler{
         this.checkBusyField = new CheckBusyField()
         this.saveMoveChanges = new SaveMoveChanges();
         this.boardLocalStorage = new BoardLocalStorage();
+        
         this.move = document.getElementById('makeAmove');
     }
 
@@ -84,24 +85,11 @@ export default class MakeAMoveHandler{
                     let currentScore=that.scoreLocalStorage.outPutScore();
                     reView.viewScore(currentScore);
     
-                    // document.getElementById('turnTurn').className='circleTurnTurn black';
                 };
 
-            }
-
-
-
-
-            // TODO: проверка занятости ячейки фишкой 
-
-
-            
-
+            };            
             console.log('click make a move');
-        
-        }
-
-    }
-
-}
+        };
+    };
+};
 

@@ -141,7 +141,7 @@
                         <div id='turnTurn'></div>
                     </div>
                     <div>
-                        <p id='resultGameOwer' class="resultGameOwer" style="display: none" >Результат:гру завершено. Перемогли : чорні </p>
+                        <div id='resultGameOwer' class="resultGameOwer" style="display: none" >Результат:гру завершено. Перемогли : <div id='victory'></div> </div>
                     </div>
                 </div>
 
@@ -171,7 +171,7 @@
                         <button id='pass'>Пас</button>
                     </div>
                     <div class="cols col-3">
-                        <button>Здатися</button>
+                        <button id='surrender'>Здатися</button>
                     </div>
                     <div class="cols col-3">
                         <button>Реванш</button>
@@ -213,13 +213,17 @@
     <script type="module" src="js/model/BoardLocalStorage.js"></script>
     <script type="module" src="js/model/SearchMoveField.js"></script>
     <script type="module" src="js/model/SaveMoveChanges.js"></script>
+
     <script type="module" src="js/controller/StartHandler.js"></script>
     <script type="module" src="js/controller/MakeAMoveHandler.js"></script>
     <script type="module" src="js/controller/MakeAMoveHandler.js"></script>
     <script type="module" src="js/controller/PassHandler.js"></script>
+    <script type="module" src="js/controller/SurrenderHandler.js"></script>
+    
     <script type="module" src="js/view/CreateSelect.js"></script>
     <script type="module" src="js/view/drawBoard.js"></script>
     <script type="module" src="js/view/ViewCurrentDataScore.js"></script>
+   
     <script type="module"  src="js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript" ></script>
     <script src="js/menu.js" type="text/javascript"></script>
