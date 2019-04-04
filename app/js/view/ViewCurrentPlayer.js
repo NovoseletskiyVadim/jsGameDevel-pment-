@@ -28,6 +28,7 @@ export default class ViewCurrentPlayer{
                 document.getElementById('namePlayer1').innerText=players.player1;
                 document.getElementById('fieldPlayer1').style.display='block';
                 document.getElementById('namePlayer1').style.display='inline';
+                document.getElementById('resultGameOwer').style.display='none';
                 
             }else{
 
@@ -42,6 +43,7 @@ export default class ViewCurrentPlayer{
                 document.getElementById('namePlayer2').innerText=players.player2;
                 document.getElementById('fieldPlayer2').style.display='block';
                 document.getElementById('namePlayer2').style.display='inline';
+
     
             }
             else{
@@ -69,6 +71,7 @@ export default class ViewCurrentPlayer{
                 document.getElementById('namePlayer1').innerText=objPlayers.player1;
                 document.getElementById('fieldPlayer1').style.display='block';                
                 document.getElementById('namePlayer1').style.display='inline';
+                document.getElementById('resultGameOwer').style.display='none';
                 
             }
             else{
