@@ -4,25 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Експертиза будівництва</title>
+    <title>Game "GO"</title>
 
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
     <link href="../font/fontawesome/css/all.css" rel="stylesheet"> 
     <link rel="stylesheet" href="../css/main.css">
 </head>
-<!-- TODO: Украинский вариант -->
+<!-- TODO: english variant -->
 <body >
     <div id="main" class="features"></div>
     <div  class="container">
-
-    
 
     <div class="row forMobile">
         <div class="cols col-12">
             <a id="touch-menu" class="mobile-menu" href="#"><i class="icon-reorder"></i>відкрити меню  <i style="float:right;" class="fas fa-align-justify"></i> </a>
             <nav>
                 <ul class="menu">
-                    <li   class=""><a title="русский язык" hreflang="/ru" href="ru/index.html"> <i class="fas fa-globe"></i><span>UKR | RU</span></a></li>
+                    <li   class=""><a title="english language" hreflang="uk" href="../index.html"> <i class="fas fa-globe"></i><span>УКР | EN</span></a></li>
                     <li   class=""><a href="#main"><i class="icon-home"></i>головна</a></li>
                     <li  class=""><a  href="#play" id='item2'><i class="icon-user"></i>грати</a></li>
                     <li  class=""><a  href="#ruls"><i class="icon-bullhorn"></i>правила</a></li>
@@ -84,10 +82,10 @@
                     <div class="cols col-6">
                         <div class="row">
                             <div class="cols col-12 playerName">
-                                <p ><span id='namePlayer1'>Player Black.</span></p>
+                                <p id="fieldPlayer1" style="display: none" >Player №1:<span id='namePlayer1'></span></p>
                             </div>
                         </div>
-                        <div class="row">
+                        <div id='scoreBlack' class="row" style="display: none">
                             <div class="cols col-12">
                                 <div class="circle black"></div>
                                 <div class="scoreInformation">
@@ -102,7 +100,7 @@
                         <div class="row inputPlayerName">
                             <div class="cols col-12">
                                 <div class="inputPlayer">
-                                    <input type="text" id="player1" placeholder="input black player">
+                                    <!-- <input type="text" id="player1" placeholder="input black player"> -->
                                 </div>
                             </div>
                         </div>
@@ -110,10 +108,10 @@
                     <div class="cols col-6">
                         <div class="row">
                             <div class="cols col-12 playerName">
-                                <p><span id='namePlayer2'>Player White.</span></p>
+                                <p id="fieldPlayer2" style="display: none">Player №2: <span id='namePlayer2'></span></p>
                             </div>
                         </div>
-                        <div class="row">
+                        <div id='scoreWhite' class="row"  style="display: none">
                             <div class="cols col-12">
                                 <div class="circle white"></div>
                                 <div class="scoreInformation">
@@ -128,7 +126,7 @@
                         <div class="row inputPlayerName">
                             <div class="cols col-12">
                                 <div class="inputPlayer">
-                                    <input type="text" id="player2" placeholder="input white player">
+                                    <!-- <input type="text" id="player2" placeholder="input white player"> -->
                                 </div>
                             </div>
                         </div>
@@ -164,17 +162,17 @@
                 </div>
 
                 <div class="row buttons">
-                    <div class="cols col-3">
-                        <button id='start'>start</button>
+                    <div class="cols col-6">
+
+                        <button id='start' class="start">to challenge</button>
+                        <button id='pass' class="pass" style="display: none">pass</button>
+                    
                     </div>
-                    <div class="cols col-3">
-                        <button id='pass'>pass</button>
-                    </div>
-                    <div class="cols col-3">
-                        <button id='surrender'>give up</button>
-                    </div>
-                    <div class="cols col-3">
-                        <button>revenge</button>
+                    <div class="cols col-6">
+                        
+                        <button id='surrender' class="surrender" style="display: none">give up</button>
+                        <button id='inputNamePlayer' class="inputNamePlayer">input name</button>
+                    
                     </div>
                 </div>
 
@@ -186,7 +184,7 @@
         
         <div id='ruls' class="row headlines features">
             <div class="cols col-12">
-                <h2 >Правила:</h2>
+                <h2 >Regulations:</h2>
             </div>
         </div>
 
@@ -194,7 +192,7 @@
 
         <div id='aboutMe' class="row headlines features">
             <div class="cols col-12">
-                 <h2 >Про атора:</h2>
+                 <h2 >About author:</h2>
             </div>
         </div>
 

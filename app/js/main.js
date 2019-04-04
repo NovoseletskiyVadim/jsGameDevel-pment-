@@ -2,6 +2,7 @@
 console.log('main-ok');
 
 import {arrayData} from './model/DataGame.js';
+import NameLocalStorage from './model/NameLocalStorage.js';
 import Score from './model/Score.js';
 import ScoreLocalStorage from './model/ScoreLocalStorage.js';
 import BoardLocalStorage from './model/BoardLocalStorage.js'
@@ -10,12 +11,14 @@ import CreateTerretoryBoard from './model/CreateTerretoryBoard.js'
 import DrawingBoard from './view/DrawBoard.js';
 import CreateSelect from './view/CreateSelect.js';
 import ViewCurrentData from './view/ViewCurrentData.js'
+import ViewCurrentPlayer from './view/ViewCurrentPlayer.js';
 
 import StartInitializesHandler from './controller/StartInitializesHandler.js';
 import MakeAMoveHandler from './controller/MakeAMoveHandler.js';
 import PassHandler from './controller/PassHandler.js';
-// import surrenderHundler from './controller/SurrenderHandler.js';
 import SurrenderHandler from './controller/SurrenderHandler.js';
+import InputNameHandler from './controller/InputNameHandler.js';
+// import surrenderHundler from './controller/SurrenderHandler.js';
 
 
 
@@ -74,9 +77,18 @@ passHandler.movePass();
 const surrenderHundler = new SurrenderHandler( currentScoreLocalStorage, viewCurrentData );
 surrenderHundler.moveSurrender();
 
+
+// click 'input name'
+const inputNameHandler=new InputNameHandler();
+// console.dir(inputNameHandler);
+inputNameHandler.inputNamePlayer();
+
+
 // this variables for window.onload function
 const onloadScore = new ScoreLocalStorage();
-const currentBoardLocalStorage = new BoardLocalStorage(); 
+const currentBoardLocalStorage = new BoardLocalStorage();
+const nameLocalStorage=new NameLocalStorage();
+const viewCurrentPlayer = new ViewCurrentPlayer(); 
 
 window.onload=function(){
 
@@ -85,6 +97,9 @@ window.onload=function(){
     
     let score=onloadScore.outPutScore();
     viewCurrentData.viewScore(score);
+
+    let namePlayers=nameLocalStorage.outPutName();
+    viewCurrentPlayer.viewPlayer(namePlayers);
     
 }
 

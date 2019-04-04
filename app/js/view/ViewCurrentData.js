@@ -43,6 +43,13 @@ export default class ViewCurrentData{
             document.getElementById('player1').style.display='none';
             document.getElementById('player2').style.display='none';
 
+            document.getElementById('start').style.display='none';
+            document.getElementById('inputNamePlayer').style.display='none';
+
+            document.getElementById('pass').style.display='inline-block';
+            document.getElementById('surrender').style.display='inline-block';
+
+
             document.getElementById('move').style.display='block';
             document.getElementById('blockMakeAMove').style.display='block';
 
@@ -78,8 +85,8 @@ export default class ViewCurrentData{
             document.getElementById('namePlayer1').innerText='';
             document.getElementById('namePlayer2').innerText='';
             
-            document.getElementById('player1').style.display='block';
-            document.getElementById('player2').style.display='block';
+            // document.getElementById('player1').style.display='block';
+            // document.getElementById('player2').style.display='block';
 
             document.getElementById('move').style.display='none';
             document.getElementById('blockMakeAMove').style.display='none';
@@ -87,6 +94,11 @@ export default class ViewCurrentData{
             document.getElementById('lastMoveWhite').innerText='';
             document.getElementById('lastMoveBlack').innerText='';
 
+            document.getElementById('start').style.display='inline-block';
+            document.getElementById('inputNamePlayer').style.display='inline-block';
+
+            document.getElementById('pass').style.display='none';
+            document.getElementById('surrender').style.display='none';
 
 
             document.getElementById('resultGameOwer').style.display='block';

@@ -55,7 +55,7 @@ export default class DrawingBoard {
         
         };
 
-        console.log(' drawing board')
+        // console.log(' drawing board')
         
     };
 
@@ -103,7 +103,7 @@ export default class DrawingBoard {
         context.fillText(this.arrayLetters[17], 455, 510);
         context.fillText(this.arrayLetters[18], 475, 510);
 
-        console.log('drawing letters');
+        // console.log('drawing letters');
 
     };
 
@@ -151,7 +151,7 @@ export default class DrawingBoard {
         context.fillText(this.arrayNumbers[17], 495, 465);
         context.fillText(this.arrayNumbers[18], 495, 485);
 
-        console.log('drawing numbers');
+        // console.log('drawing numbers');
 
     };
 

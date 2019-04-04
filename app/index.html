@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Експертиза будівництва</title>
+    <title>игра  "ГО"</title>
 
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
     <link href="./font/fontawesome/css/all.css" rel="stylesheet"> 
@@ -22,7 +22,7 @@
             <a id="touch-menu" class="mobile-menu" href="#"><i class="icon-reorder"></i>відкрити меню  <i style="float:right;" class="fas fa-align-justify"></i> </a>
             <nav>
                 <ul class="menu">
-                    <li   class=""><a title="русский язык" hreflang="/ru" href="ru/index.html"> <i class="fas fa-globe"></i><span>UKR | RU</span></a></li>
+                    <li   class=""><a title="русский язык" hreflang="/en" href="en/index.html"> <i class="fas fa-globe"></i><span>UKR | RU</span></a></li>
                     <li   class=""><a href="#main"><i class="icon-home"></i>головна</a></li>
                     <li  class=""><a  href="#play" id='item2'><i class="icon-user"></i>грати</a></li>
                     <li  class=""><a  href="#ruls"><i class="icon-bullhorn"></i>правила</a></li>
@@ -84,10 +84,10 @@
                     <div class="cols col-6">
                         <div class="row">
                             <div class="cols col-12 playerName">
-                                <p ><span id='namePlayer1'>Гравець чорних.</span></p>
+                                <p id="fieldPlayer1" style="display: none"> Гравець №1: <span id='namePlayer1' style="display: none">.</span></p>
                             </div>
                         </div>
-                        <div class="row">
+                        <div id='scoreBlack' class="row" style="display: none">
                             <div class="cols col-12">
                                 <div class="circle black"></div>
                                 <div class="scoreInformation">
@@ -102,18 +102,18 @@
                         <div class="row inputPlayerName">
                             <div class="cols col-12">
                                 <div class="inputPlayer">
-                                    <input type="text" id="player1" placeholder="введіть гравця чорних">
+                                    <!-- <input type="text" id="player1" placeholder="введіть гравця чорних"> -->
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="cols col-6">
-                        <div class="row">
+                        <div  class="row" >
                             <div class="cols col-12 playerName">
-                                <p><span id='namePlayer2'>Гравець білих.</span></p>
+                                <p id="fieldPlayer2" style="display: none">Гравець №2: <span id='namePlayer2'></span></p>
                             </div>
                         </div>
-                        <div class="row">
+                        <div id='scoreWhite' class="row" style="display: none">
                             <div class="cols col-12">
                                 <div class="circle white"></div>
                                 <div class="scoreInformation">
@@ -128,7 +128,7 @@
                         <div class="row inputPlayerName">
                             <div class="cols col-12">
                                 <div class="inputPlayer">
-                                    <input type="text" id="player2" placeholder="введіть гравця білих">
+                                    <!-- <input type="text" id="player2" placeholder="введіть гравця білих"> -->
                                 </div>
                             </div>
                         </div>
@@ -164,17 +164,13 @@
                 </div>
 
                 <div class="row buttons">
-                    <div class="cols col-3">
-                        <button id='start'>Почати</button>
+                    <div class="cols col-6">
+                        <button id='start'class='start'>кинути виклик</button>
+                        <button id='pass' class='pass' style="display: none">Пас</button>
                     </div>
-                    <div class="cols col-3">
-                        <button id='pass'>Пас</button>
-                    </div>
-                    <div class="cols col-3">
-                        <button id='surrender'>Здатися</button>
-                    </div>
-                    <div class="cols col-3">
-                        <button>Реванш</button>
+                    <div class="cols col-6">
+                        <button id='surrender' class="surrender" style="display: none">Здатися</button>
+                        <button id='inputNamePlayer' class="inputNamePlayer">введіть своє ім'я</button>
                     </div>
                 </div>
 
@@ -207,6 +203,8 @@
 
     </div>
     <script type="module" src="js/model/DataGame.js"></script>
+    <script type="module" src="js/model/NamesPlayer.js"></script>
+    <script type="module" src="js/model/NameLocalStorage.js"></script>
     <script type="module" src="js/model/Score.js"></script>
     <script type="module" src="js/model/Territory.js"></script>
     <script type="module" src="js/model/ScoreLocalStorage.js"></script>
@@ -215,13 +213,14 @@
     <script type="module" src="js/model/SaveMoveChanges.js"></script>
 
     <script type="module" src="js/controller/StartHandler.js"></script>
-    <script type="module" src="js/controller/MakeAMoveHandler.js"></script>
+    <script type="module" src="js/controller/InputNameHandler.js"></script>
     <script type="module" src="js/controller/MakeAMoveHandler.js"></script>
     <script type="module" src="js/controller/PassHandler.js"></script>
     <script type="module" src="js/controller/SurrenderHandler.js"></script>
     
     <script type="module" src="js/view/CreateSelect.js"></script>
     <script type="module" src="js/view/drawBoard.js"></script>
+    <script type="module" src="js/view/ViewCurrentPlayer.js"></script>
     <script type="module" src="js/view/ViewCurrentDataScore.js"></script>
    
     <script type="module"  src="js/main.js"></script>
