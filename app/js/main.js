@@ -96,6 +96,8 @@ window.onload=function(){
     viewCurrentData.viewBoard(currentBoard.outPutBoard());
     
     let score=onloadScore.outPutScore();
+    console.log('score=');
+    console.dir(score);
     viewCurrentData.viewScore(score);
 
     let namePlayers=nameLocalStorage.outPutName();
