@@ -114,7 +114,7 @@ export default class StartInitializesHandler{
                 let currentName =that.nameLocalStorage.outPutName();
         
                 if(currentName==null || currentName.player1=='' && currentName.player2==''){
-                    alert('Перед початком гри, введіть імена гравців ');
+                    alert('Перед початком гри, введіть імена гравців \\Before starting the game, enter the player\'s names');
                 }
                 else if(currentName.player1=='' || currentName.player2==''){
         

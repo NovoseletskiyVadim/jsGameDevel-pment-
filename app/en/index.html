@@ -24,7 +24,6 @@
                     <li   class=""><a href="#main"><i class="icon-home"></i>головна</a></li>
                     <li  class=""><a  href="#play" id='item2'><i class="icon-user"></i>грати</a></li>
                     <li  class=""><a  href="#ruls"><i class="icon-bullhorn"></i>правила</a></li>
-                    <li  class=""><a href="#aboutMe"><i class="icon-home"></i>про автора</a>
                 <ul>        
             <nav>            
         </div>
@@ -48,7 +47,6 @@
                                 <li class=""><a href="#main"><i class="icon-home"></i>main</a></li>
                                 <li class=""><a  href="#play"><i class="icon-user"></i>play </a></li>
                                 <li class=""><a  href="#ruls"><i class="icon-bullhorn"></i>regulations</a></li>
-                                <li class=""><a href="#aboutMe"><i class="icon-home"></i>about author</a>
                             </ul>
                         </nav>
                     </div>           
@@ -97,13 +95,6 @@
                                 </div>
                             </div>
                         </div> 
-                        <div class="row inputPlayerName">
-                            <div class="cols col-12">
-                                <div class="inputPlayer">
-                                    <!-- <input type="text" id="player1" placeholder="input black player"> -->
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="cols col-6">
                         <div class="row">
@@ -123,13 +114,6 @@
                                 </div>
                             </div>
                         </div> 
-                        <div class="row inputPlayerName">
-                            <div class="cols col-12">
-                                <div class="inputPlayer">
-                                    <!-- <input type="text" id="player2" placeholder="input white player"> -->
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -182,19 +166,149 @@
 
        
         
-        <div id='ruls' class="row headlines features">
+        
+
+
+        <div id='ruls' class="row ruls ">
             <div class="cols col-12">
-                <h2 >Regulations:</h2>
+                <div class="row">
+                    <div class="cols col-12">
+                        <h2 >Regulations:</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="cols col-8">
+                        <p>
+
+                            The field represents 19x19 lines. Propulsion opponents make stones
+                            (chips) to the points of intersection of the lines(a1 ... s19) <span>( img.1 )</span>. 
+                            Doing the move
+                            the player places one stone on the board in any un occupied position
+                            point of intersection of lines (intersection is called points). Stones
+                            placed on the board, do not move, but may be
+                            captured by the enemy and taken away from it.
+        
+                        </p>
+
+                        <p>
+
+                            Each stone must have at least one lady (point of freedom, respiratory point)
+                            - adjacent vertically or horizontally (but not diagonally!) unoccupied
+                            points <span>( img.2 )</span>. Neighboring or linked by a continuous chain of neighbors is a stones of one
+                            the colors form a group and divide the lady among themselves (that is, any lady of any one
+                            the stone in the group refers simultaneously to all the rocks of this group).
+                            When a stone or a group of stones is surrounded by rivals so,
+                            that she does not have points of freedom, she is considered captured and
+                            removed from the board.
+            
+                        </p>
+
+                        <p>
+                            A player may refuse another turn by saying "pass".
+                            If the opponent also makes a "pass", the game is considered complete, but it is done
+                            counting according to the rules.
+                        </p>
+
+                        <p>
+                            Figure 2 shows so many points of freedom (dame) of each stone in
+                            Depending on the location on the board.
+                        </p>
+
+                        <h3> Score </h3>
+
+                        <p>
+                            The "Go" rules are simple, but simplicity ends where it starts
+                            count points The main source of discrepancies is the question of
+                            what should be considered "points of victory"? By and large, there are
+                            two approaches: Japanese (counting territory + captive stones) and Chinese
+                            (calculation of the seized area).
+                        </p>
+
+                        <p>
+                            According to Japanese rules, captive stones are removed from the board and
+                            move on the territory of the same color. Then the territory
+                            transformed for ease of counting and counting the territory
+                            one and another color.
+                        </p>
+
+                        <p>
+                            According to Chinese rules captives are removed from the board and
+                            return to the bowl for the stones. Then they are calculated
+                            stones, exhibited on the board and the territory of only one
+                            color, adding stones from the bowls and transforming the territory for
+                            convenience of counting. If the amount of stones and territory is equal
+                            or more than 181, then this party won the party. We deduct from the sum
+                            181, double, add 1 and get the value of the prize.
+                        </p>
+                        
+                        <p>
+                            AGA applies both the one and the other system - with the consent. If consent is not
+                            achieved, then use the Japanese system.
+                            The result for both counting systems usually coincides
+                            (within one point).
+                            In order to achieve a complete match according to AGA rules, the last move should be
+                            do white
+                        </p>
+
+                        <p>
+
+                            So in the Japanese version of the rules, the total number of items is used
+                            territory and captured enemy stones, (captured stones are removed
+                            from the board and move on the territory of the same color. Then the territory
+                            transformed for ease of counting and counting the territory of that
+                            and another color. )
+
+                        </p>
+                        <p>
+                            In Chinese - the area captured by the player. It should be explained here.
+                            than the territory is different from the area.
+                        </p>
+                        <p>
+                            The player's area is called free board items, from which,
+                            following only the vertical and horizontal connection, it is impossible
+                            get to the stones of the enemy. In the picture <span>( img.3 )</span> triangles
+                            reflected Territory of Black.
+                            The area captured by the player, other than the territory, includes all points,
+                            on which the stones belonging to the player are installed.
+                        </p>
+                        <p>
+                                Territory and area are calculated already after removal from the board
+                                all "dead" groups. For each group located on the territory
+                                an opponent, its status is determined. For example, the group "with two eyes"
+                                are recognized as "alive" and remain on the board, enclosing their own territory.
+                                The groups of stones that can be captured when shooting are recognized as "dead" and
+                                removed from the board (in the Japanese version of the rules, removed from the board stones
+                                added to the stones captured by the opponent). Dead chips
+                                reflected in translucent color <span>( img.4 )</span>.
+                        </p>
+                    </div>
+                    <div class="cols col-4">
+                        <img src="../img/img1.png" style="width: 80%" alt="playField ruls">
+                        <p class="image">img.1</p>
+                        <img src="../img/img2.png" alt="dame ruls">
+                        <p class="image">img.2</p>
+                        <img src="../img/img3.png" alt="terretory ruls">
+                        <p class="image">img.3</p>
+                        <img src="../img/img4.png" alt="dead stones">s
+                        <p class="image">img.4</p>
+                    </div>
+                </div>
+
+
+                
+
+                
+
+                
+
             </div>
         </div>
+    
 
         
 
-        <div id='aboutMe' class="row headlines features">
-            <div class="cols col-12">
-                 <h2 >About author:</h2>
-            </div>
-        </div>
+        
 
         
         
