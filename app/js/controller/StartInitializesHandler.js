@@ -1,5 +1,6 @@
 // Describes event handler click button "Start"
 import DrawingBoard from '../view/DrawBoard.js';
+import NameLocalStorage from '../model/NameLocalStorage.js';
 
 export default class StartInitializesHandler{
 
@@ -23,6 +24,7 @@ export default class StartInitializesHandler{
         this.context=context;
 
         this.drawingBoard=new DrawingBoard();
+        this.nameLocalStorage= new NameLocalStorage();
         
         this.start=document.getElementById('start');
 
@@ -39,24 +41,54 @@ export default class StartInitializesHandler{
         
             if(checkResult===null){
                 
-                let getNamePlayerValue=that.view.getInputNameValue();
-                let namePlayerBlack=getNamePlayerValue.namePlayerBlack;
-                let namePlayerWhite=getNamePlayerValue.namePlayerWhite;
-                        
-                if(namePlayerBlack=='' && namePlayerWhite==''){
-                    alert('Перед початком гри, введіть імена гравців ')
-                }
-                else if(namePlayerBlack=='' || namePlayerWhite==''){
+                let currentName =that.nameLocalStorage.outPutName();
         
-                    let result =(namePlayerBlack=='')? 'заповніть імя чорного гравця' : 'заповніть імя білого гравця'
+                if(currentName==null || currentName.player1=='' && currentName.player2==''){
+                    alert('Перед початком гри, введіть імена гравців ');
+                }
+                else if(currentName.player1=='' || currentName.player2==''){
+        
+                    let result =(currentName.player1=='')?
+                        'заповніть ім\'я 1-го гравця \\fill in the name of the first player' 
+                     :  'заповніть ім\'я 2-го гравця \\fill in the name of the second player'
                     alert(result);
                 }
                 else{
         
-                    let arrayObjects=that.createTerretoryBoard.createArrayObjects()
-        
+                    let arrayObjects=that.createTerretoryBoard.createArrayObjects();
+                    let currentPlayers=that.nameLocalStorage.outPutName();
+
+                    let namePlayerBlack, namePlayerWhite=undefined;
+
+                    function whoIswho(min,max, currentPlayers){
+
+
+                        if(currentPlayers){
+
+                            let player1=Math.floor(Math.random() * (max - min + 1)) + min;
+                            let player2=Math.floor(Math.random() * (max - min + 1)) + min;
+
+                            if(player1>=player2){
+                                namePlayerBlack=currentPlayers.player1;
+                                namePlayerWhite=currentPlayers.player2;
+                            }
+                            else{
+                                namePlayerBlack=currentPlayers.player2;
+                                namePlayerWhite=currentPlayers.player1;
+                            };
+                        };
+                    };
+
+
+                    whoIswho(1,20,currentPlayers);
+
                     
                     if (that.score && arrayObjects){
+
+                        let resetPlayers=that.nameLocalStorage.outPutName();
+                        resetPlayers.player1='';
+                        resetPlayers.player2='';
+                        that.nameLocalStorage.saveName(resetPlayers);
 
                         that.score.namePlayerBlack=namePlayerBlack;
                         that.score.namePlayerWhite=namePlayerWhite;
@@ -76,51 +108,70 @@ export default class StartInitializesHandler{
                 };
  
             }  
-            else if (checkResult.phase==='startGame'){
-        
-                that.view.viewScore(that.scoreLocalStorage.outPutScore());        
-                
-                alert('Игра уже начата. Что бы начать сначала завершите партию.')
-                
-            }
+            
             else if(checkResult.phase==='endGame'){
 
-                
-                that.view.viewScore(that.scoreLocalStorage.outPutScore());  
-
-                let getNamePlayerValue=that.view.getInputNameValue();
-
-                let namePlayerBlack=getNamePlayerValue.namePlayerBlack;
-                let namePlayerWhite=getNamePlayerValue.namePlayerWhite;
-                        
-                if(namePlayerBlack=='' && namePlayerWhite==''){
-                    alert('Перед початком гри, введіть імена гравців ')
-                }
-                else if(namePlayerBlack=='' || namePlayerWhite==''){
+                let currentName =that.nameLocalStorage.outPutName();
         
-                    let result =(namePlayerBlack=='')? 'заповніть імя чорного гравця' : 'заповніть імя білого гравця'
+                if(currentName==null || currentName.player1=='' && currentName.player2==''){
+                    alert('Перед початком гри, введіть імена гравців ');
+                }
+                else if(currentName.player1=='' || currentName.player2==''){
+        
+                    let result =(currentName.player1=='')?
+                        'заповніть ім\'я 1-го гравця \\fill in the name of the first player' 
+                     :  'заповніть ім\'я 2-го гравця \\fill in the name of the second player'
                     alert(result);
                 }
                 else{
         
-                    let arrayObjects=that.createTerretoryBoard.createArrayObjects()
-        
+                    let arrayObjects=that.createTerretoryBoard.createArrayObjects();
+                    let currentPlayers=that.nameLocalStorage.outPutName();
+
+                    let namePlayerBlack, namePlayerWhite=undefined;
+
+                    function whoIswho(min,max, currentPlayers){
+
+
+                        if(currentPlayers){
+
+                            let player1=Math.floor(Math.random() * (max - min + 1)) + min;
+                            let player2=Math.floor(Math.random() * (max - min + 1)) + min;
+
+                            if(player1>=player2){
+                                namePlayerBlack=currentPlayers.player1;
+                                namePlayerWhite=currentPlayers.player2;
+                            }
+                            else{
+                                namePlayerBlack=currentPlayers.player2;
+                                namePlayerWhite=currentPlayers.player1;
+                            };
+                        };
+                    };
+
+
+                    whoIswho(1,20,currentPlayers);
+
                     
                     if (that.score && arrayObjects){
 
+                        let resetPlayers=that.nameLocalStorage.outPutName();
+                        resetPlayers.player1='';
+                        resetPlayers.player2='';
+                        that.nameLocalStorage.saveName(resetPlayers);
+
                         that.score.namePlayerBlack=namePlayerBlack;
                         that.score.namePlayerWhite=namePlayerWhite;
-                        that.scoreLocalStorage.saveScore( that.score );
+                        that.scoreLocalStorage.saveScore(that.score);
         
-                        that.boardLocalStorage.saveBoard( arrayObjects );
+                        that.boardLocalStorage.saveBoard(arrayObjects);
         
                         let scoreInfo=that.scoreLocalStorage.outPutScore();
-                        let board=that.boardLocalStorage.outPutBoard();
+                        
+                        that.drawingBoard.reDrawingBoard(that.context);
 
-                        that.drawingBoard.reDrawingBoard(that.context);               
-                        that.view.viewScore( scoreInfo );
-                        that.view.viewBoard( board );
-
+                        that.view.viewScore(scoreInfo);
+        
                         console.log('save new score in the local storage ');
                     }
                     else{
