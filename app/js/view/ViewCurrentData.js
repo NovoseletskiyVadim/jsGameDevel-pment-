@@ -38,22 +38,30 @@ export default class ViewCurrentData{
 
         if(currentScore.phase==="startGame"){
 
-            document.getElementById('player1').value='';
-            document.getElementById('player2').value='';
-            document.getElementById('player1').style.display='none';
-            document.getElementById('player2').style.display='none';
-
+           
             document.getElementById('start').style.display='none';
             document.getElementById('inputNamePlayer').style.display='none';
 
             document.getElementById('pass').style.display='inline-block';
             document.getElementById('surrender').style.display='inline-block';
 
+            document.getElementById('scoreBlack').style.display='block';
+            document.getElementById('scoreWhite').style.display='block';
+
+            document.getElementById('fieldPlayer1').style.display='block';
+            document.getElementById('fieldPlayer2').style.display='block';
+
+
 
             document.getElementById('move').style.display='block';
             document.getElementById('blockMakeAMove').style.display='block';
 
             document.getElementById('resultGameOwer').style.display='none';
+
+            console.error('currentScore.namePlayerBlack='+currentScore.namePlayerBlack);
+
+            document.getElementById('namePlayer1').style.display='inline';
+            document.getElementById('namePlayer2').style.display='inline';
 
             document.getElementById('namePlayer1').innerText=currentScore.namePlayerBlack;
             document.getElementById('namePlayer2').innerText=currentScore.namePlayerWhite;
@@ -84,6 +92,9 @@ export default class ViewCurrentData{
 
             document.getElementById('namePlayer1').innerText='';
             document.getElementById('namePlayer2').innerText='';
+
+            document.getElementById('scoreBlack').style.display='none';
+            document.getElementById('scoreWhite').style.display='none';
             
             // document.getElementById('player1').style.display='block';
             // document.getElementById('player2').style.display='block';
