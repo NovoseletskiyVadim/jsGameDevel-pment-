@@ -1,4 +1,5 @@
 
+// Describes check busy field
 
 
 export default class CheckBusyField{
