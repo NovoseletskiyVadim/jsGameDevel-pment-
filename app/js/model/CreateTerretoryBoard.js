@@ -1,3 +1,5 @@
+// Describes the creation of a two dimensional array of objects
+
 import Territory from './Territory.js';
 
 export default class CreateTerretoryBoard{
@@ -12,6 +14,7 @@ export default class CreateTerretoryBoard{
         this.cols=dataObject.cols;
         this.fieldLetters=dataObject.fieldLetters;
         this.fieldNumbers=dataObject.fieldNumbers;
+        this.cheskBreath=dataObject.cheskBreath;
     
     };
 
@@ -33,9 +36,19 @@ export default class CreateTerretoryBoard{
                 let coord_y=(j+2)*this.height/20;
                 let arr_i=i;
                 let arr_j=j;
-                let stateTerritory=0;
+                let stateTerritory=this.stateTerritory;
+                let cheskBreath=this.cheskBreath
 
-                let objTerritory=new Territory(letter,number,coord_x,coord_y,arr_i, arr_j, stateTerritory);
+                let objTerritory=new Territory(
+                                                letter,
+                                                number,
+                                                coord_x,
+                                                coord_y,
+                                                arr_i,
+                                                arr_j,
+                                                stateTerritory,
+                                                cheskBreath
+                                            );
 
                 arr[i][j] = objTerritory;           
             };
