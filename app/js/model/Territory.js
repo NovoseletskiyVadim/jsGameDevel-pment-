@@ -24,7 +24,7 @@ export default class Territory{
 
     // the constructor takes data for a single cell field
     
-    constructor(letter,number,coord_x,coord_y, arr_i, arr_j, stateTerritory ){
+    constructor(letter,number,coord_x,coord_y, arr_i, arr_j, stateTerritory, cheskBreath){
 
         this.letter=letter;
         this.number=number;
@@ -33,6 +33,7 @@ export default class Territory{
         this.arr_i=arr_i;
         this.arr_j=arr_j;
         this.stateTerritory=stateTerritory;
+        this.cheskBreath=cheskBreath;
         
     };
 
