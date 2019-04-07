@@ -11,6 +11,8 @@ let arrayData={
     'fieldNumbers':[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19] ,
     'canvasWidth':448,
     'canvasHeight':448,
+    'stateTerritory':0,
+    'cheskBreath':false,
 
     'turnTurn':'black',
     'captivityBlack':0,
@@ -21,7 +23,6 @@ let arrayData={
     'lastBlackMove':'',
     'lastWhiteMove':'',
     'victory':''
-
 
 }
 
