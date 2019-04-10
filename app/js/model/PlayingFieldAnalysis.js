@@ -21,6 +21,57 @@ export default class PlayingFieldAnalysis{
         
         if(this.territoryObj!=null || this.territoryObj!=undefined){
 
+            var currentCheckTerretory=this.territoryObj;
+            const arr=this.arrX2;
+            
+            
+
+            checkLeft(currentCheckTerretory,arr,this.data);
+
+
+            if(currentCheckTerretory.cheskBreath==true){
+
+                return currentCheckTerretory;
+            }
+            else if(currentCheckTerretory.cheskBreath==false){
+
+                checkRight(currentCheckTerretory,arr,this.data);
+
+                if(currentCheckTerretory.cheskBreath==true){
+
+                    return currentCheckTerretory;
+                }
+                else if(currentCheckTerretory.cheskBreath==false){
+    
+                    checkUp(currentCheckTerretory,arr,this.data)
+    
+                    if(currentCheckTerretory.cheskBreath==true){
+    
+                        return currentCheckTerretory;
+                    }
+                    else if(currentCheckTerretory.cheskBreath==false){
+                        
+                       
+                        checkDown(currentCheckTerretory,arr,this.data);
+
+                        if(currentCheckTerretory.cheskBreath==true){
+    
+                            return currentCheckTerretory;
+                        }
+                        else if(currentCheckTerretory.cheskBreath==false){
+
+                            console.log('situation!!!')
+                            currentCheckTerretory.stateTerritory=0;
+                            console.dir(currentCheckTerretory);
+                            return currentCheckTerretory;
+
+                        };
+
+                    };
+                };
+               
+            };
+
         }
         else{
 
