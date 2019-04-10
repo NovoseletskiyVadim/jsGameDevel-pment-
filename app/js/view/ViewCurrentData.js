@@ -58,7 +58,7 @@ export default class ViewCurrentData{
 
             document.getElementById('resultGameOwer').style.display='none';
 
-            console.error('currentScore.namePlayerBlack='+currentScore.namePlayerBlack);
+            // console.error('currentScore.namePlayerBlack='+currentScore.namePlayerBlack);
 
             document.getElementById('namePlayer1').style.display='inline';
             document.getElementById('namePlayer2').style.display='inline';

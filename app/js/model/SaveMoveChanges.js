@@ -35,6 +35,7 @@ export default class SaveMoveChange{
 
         this.boardLocalStorage.saveBoard(arr);
 
+        console.log(' изминения сохранены !');
 
     }
 

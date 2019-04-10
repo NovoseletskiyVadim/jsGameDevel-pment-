@@ -18,7 +18,6 @@ import MakeAMoveHandler from './controller/MakeAMoveHandler.js';
 import PassHandler from './controller/PassHandler.js';
 import SurrenderHandler from './controller/SurrenderHandler.js';
 import InputNameHandler from './controller/InputNameHandler.js';
-// import surrenderHundler from './controller/SurrenderHandler.js';
 
 
 
@@ -96,8 +95,7 @@ window.onload=function(){
     viewCurrentData.viewBoard(currentBoard.outPutBoard());
     
     let score=onloadScore.outPutScore();
-    console.log('score=');
-    console.dir(score);
+    
     viewCurrentData.viewScore(score);
 
     let namePlayers=nameLocalStorage.outPutName();

@@ -14,6 +14,7 @@ export default class CreateTerretoryBoard{
         this.cols=dataObject.cols;
         this.fieldLetters=dataObject.fieldLetters;
         this.fieldNumbers=dataObject.fieldNumbers;
+        this.stateTerritory=dataObject.stateTerritory;
         this.cheskBreath=dataObject.cheskBreath;
     
     };
