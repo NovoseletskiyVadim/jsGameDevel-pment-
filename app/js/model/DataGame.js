@@ -14,6 +14,8 @@ let arrayData={
     'stateTerritory':0,
     'cheskBreath':false,
 
+    'canvas':document.getElementById('game'),
+
     'turnTurn':'black',
     'captivityBlack':0,
     'captivityWhite':0,

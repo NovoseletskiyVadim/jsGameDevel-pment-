@@ -7,12 +7,14 @@
 
 
 */
-
+import {arrayData} from '../model/DataGame.js';
 import SearchMoveField from '../model/SearchMoveField.js';
 import CheckBusyField from '../model/CheckBusyField.js';
 import PlayingFieldAnalysis from '../model/PlayingFieldAnalysis.js';
 import SaveMoveChanges from '../model/SaveMoveChanges.js';
 import BoardLocalStorage from '../model/BoardLocalStorage.js'
+import CheckPrisoners from '../model/CheckPrisoners.js';
+import DrawingBoard from '../view/DrawBoard.js';
 
 export default class MakeAMoveHandler{
 
@@ -26,6 +28,9 @@ export default class MakeAMoveHandler{
         this.saveMoveChanges = new SaveMoveChanges();
         this.boardLocalStorage = new BoardLocalStorage();
         this.playingFieldAnalysis=new PlayingFieldAnalysis();
+        this.checkPrisoners=new CheckPrisoners();
+        this.drawingBoard=new DrawingBoard();
+        this.data=arrayData;
         
         this.move = document.getElementById('makeAmove');
     }
@@ -57,7 +62,7 @@ export default class MakeAMoveHandler{
                     checkBusy.stateTerritory='black';
                     that.saveMoveChanges.saveChangeObject(checkBusy);
 
-                    // TODO: ПРОВЕРКА ДЫХАНИЯ И СУИЦИДА
+                    //check syiside +++++++++++++++++++++++++++++++++++
 
                     let checkCurrentBoard=that.boardLocalStorage.outPutBoard();
                     let checkCurrentObj=checkBusy;
@@ -71,19 +76,67 @@ export default class MakeAMoveHandler{
                         return null;
                     }
                     else{
-
+                        
                         score.turnTurn='white';
                         score.lastBlackMove=letter+number;
+                        
+                        let checkCurrentBoard=that.boardLocalStorage.outPutBoard();
+                        let arr=checkCurrentBoard;
+
+                        var arrDeadStonesWhite=[]
+
+                        let result=null;
+                        
+                        for(let i=0; i<that.data.rows;i++){
+                                                        
+                            for(let j=0 ; j<that.data.cols; j++){
+                                
+                                if(arr[i][j].stateTerritory=='white'){
+                                    
+                                    // TODO: метод checkPrisoners
+
+                                    result=that.checkPrisoners.analysisPrisoners(arr[i][j],checkCurrentBoard); 
+                                    
+
+                                    if(result.cheskBreath==false){
+
+                                        score.captivityWhite+=1;
+                                        arrDeadStonesWhite.push(result);
+                                    };
+                                }
+                                else{
+                                    continue;
+                                };
+                            };
+
+                        };
+
+                        // re-drawing board
+                        that.drawingBoard.reDrawingBoard(that.data.canvas.getContext('2d'));
+
+                        for(let i=0 ;i<=arrDeadStonesWhite.length;i++){
+                           
+                            if(arrDeadStonesWhite[i]!=undefined){
+                                // console.error('element i='+i);
+                                // console.dir(arrDeadStones[i]);
+                                arrDeadStonesWhite[i].stateTerritory=0;
+                                
+                                that.saveMoveChanges.saveChangeObject(arrDeadStonesWhite[i]);
+                            }
+
+                        };
+
+                        
+
                         that.scoreLocalStorage.saveScore(score);
 
                         that.saveMoveChanges.saveChangeObject(resultAnalitics);
+
+                        arrDeadStonesWhite.length=0;
                     }
 
 
-                    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-
+                    //view ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
                     let currentBoard=that.boardLocalStorage.outPutBoard();
                     reView.viewBoard(currentBoard);
@@ -99,7 +152,7 @@ export default class MakeAMoveHandler{
                     checkBusy.stateTerritory='white';
                     that.saveMoveChanges.saveChangeObject(checkBusy);
 
-                    // TODO: ПРОВЕРКА ДЫХАНИЯ И СУИЦИДА
+                     //check syiside +++++++++++++++++++++++++++++++++++
 
                     let checkCurrentBoard=that.boardLocalStorage.outPutBoard();
                     let checkCurrentObj=checkBusy;
@@ -118,12 +171,63 @@ export default class MakeAMoveHandler{
                         
                         score.turnTurn='black';
                         score.lastWhiteMove=letter+number;
+                        
+                        let checkCurrentBoard=that.boardLocalStorage.outPutBoard();
+                        let arr=checkCurrentBoard;
+
+                        var arrDeadStonesBlack=[]
+
+                        let result=null;
+
+                        for(let i=0; i<that.data.rows;i++){
+                                                        
+                            for(let j=0 ; j<that.data.cols; j++){
+                                
+                                if(arr[i][j].stateTerritory=='black'){
+                                    
+                                    // TODO: метод checkPrisoners
+
+                                    result=that.checkPrisoners.analysisPrisoners(arr[i][j],checkCurrentBoard); 
+
+                                    if(result.cheskBreath==false){
+
+                                        score.captivityBlack+=1;
+                                        arrDeadStonesBlack.push(result);
+
+                                    };
+                                }
+                                else{
+                                    continue;
+                                };
+                            };
+
+                        };
+
+
+                        that.drawingBoard.reDrawingBoard(that.data.canvas.getContext('2d'));
+
+                        for(let i=0 ;i<=arrDeadStonesBlack.length;i++){
+                           
+                            if(arrDeadStonesBlack[i]!=undefined){
+
+                                arrDeadStonesBlack[i].stateTerritory=0;
+                                
+                                that.saveMoveChanges.saveChangeObject(arrDeadStonesBlack[i]);
+                            };
+
+                        };
+                        
+                       
+
+
+
                         that.scoreLocalStorage.saveScore(score);
                         that.saveMoveChanges.saveChangeObject(resultAnalitics);
+                        arrDeadStonesBlack.length=0;
                     }
 
 
-                    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    // view ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
                     let currentBoard=that.boardLocalStorage.outPutBoard();

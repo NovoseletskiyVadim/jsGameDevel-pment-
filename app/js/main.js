@@ -23,9 +23,9 @@ import InputNameHandler from './controller/InputNameHandler.js';
 
 // drawing play board 
 
-let canvas=document.getElementById('game');
-let context=canvas.getContext('2d');
 let initializeData = arrayData;
+let canvas=arrayData.canvas;
+let context=canvas.getContext('2d');
 
 const boardDrawing=new DrawingBoard(context);
 
