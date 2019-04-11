@@ -63,8 +63,7 @@ export default class ViewCurrentData{
 
             // console.error('currentScore.namePlayerBlack='+currentScore.namePlayerBlack);
 
-            document.getElementById('namePlayer1').style.display='inline';
-            document.getElementById('namePlayer2').style.display='inline';
+           
 
             document.getElementById('namePlayer1').innerText=currentScore.namePlayerBlack;
             document.getElementById('namePlayer2').innerText=currentScore.namePlayerWhite;
@@ -72,6 +71,9 @@ export default class ViewCurrentData{
             document.getElementById('territoryWhite').innerText=currentScore.territoryWhite;
             document.getElementById('captivityBlack').innerText=currentScore.captivityBlack
             document.getElementById('captivityWhite').innerText=currentScore.captivityWhite;
+
+            document.getElementById('namePlayer1').style.display='block';
+            document.getElementById('namePlayer2').style.display='block';
 
            
             if(currentScore.lastBlackMove!=''||currentScore.lastMoveWhite!=''){
@@ -210,26 +212,26 @@ export default class ViewCurrentData{
                     let colorBorder;
 
                     if(obj.stateTerritory==0){
-                        colorIn ='green';
-                        colorBorder='black';
-                        drawPiece(x,y,colorIn,colorBorder);
+                        // colorIn ='green';
+                        // colorBorder='black';
+                        // drawPiece(x,y,colorIn,colorBorder);
                         continue;
                     }
                     else if(obj.stateTerritory==1){
-                        colorIn ='red'
-                        colorBorder='black';
-                        drawPiece(x,y,colorIn,colorBorder);
+                        // colorIn ='red'
+                        // colorBorder='black';
+                        // drawPiece(x,y,colorIn,colorBorder);
                     }
                     else if(obj.stateTerritory==2){
 
-                        colorIn='blue'
-                        colorBorder='white';
-                        drawPiece(x,y,colorIn,colorBorder);
+                        // colorIn='blue'
+                        // colorBorder='white';
+                        // drawPiece(x,y,colorIn,colorBorder);
                     }
                     else if(obj.stateTerritory==3){
-                        colorIn ='yellow';
-                        colorBorder='black';
-                        drawPiece(x,y,colorIn,colorBorder);
+                        // colorIn ='yellow';
+                        // colorBorder='black';
+                        // drawPiece(x,y,colorIn,colorBorder);
 
                     }
                     else if(obj.stateTerritory=='black'){
