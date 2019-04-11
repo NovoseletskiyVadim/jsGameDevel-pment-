@@ -34,7 +34,7 @@ export default class DrawingBoard {
         
         };
 
-        console.log('re drawing board')
+        // console.log('re drawing board')
 
 
     }
