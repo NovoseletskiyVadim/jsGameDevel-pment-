@@ -90,6 +90,9 @@ const nameLocalStorage=new NameLocalStorage();
 const viewCurrentPlayer = new ViewCurrentPlayer(); 
 
 window.onload=function(){
+    
+    let namePlayers=nameLocalStorage.outPutName();
+    viewCurrentPlayer.viewPlayer(namePlayers);
 
     let currentBoard=currentBoardLocalStorage;
     viewCurrentData.viewBoard(currentBoard.outPutBoard());
@@ -98,8 +101,7 @@ window.onload=function(){
     
     viewCurrentData.viewScore(score);
 
-    let namePlayers=nameLocalStorage.outPutName();
-    viewCurrentPlayer.viewPlayer(namePlayers);
+    
     
 }
 
