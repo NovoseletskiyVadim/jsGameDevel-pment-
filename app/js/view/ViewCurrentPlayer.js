@@ -27,6 +27,7 @@ export default class ViewCurrentPlayer{
 
                 document.getElementById('namePlayer1').innerText=players.player1;
                 document.getElementById('fieldPlayer1').style.display='block';
+                document.getElementById('number1').style.display='none';
                 document.getElementById('namePlayer1').style.display='inline';
                 document.getElementById('resultGameOwer').style.display='none';
                 
@@ -42,6 +43,7 @@ export default class ViewCurrentPlayer{
     
                 document.getElementById('namePlayer2').innerText=players.player2;
                 document.getElementById('fieldPlayer2').style.display='block';
+                document.getElementById('number2').style.display='none';
                 document.getElementById('namePlayer2').style.display='inline';
 
     

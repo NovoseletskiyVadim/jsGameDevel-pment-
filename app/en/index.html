@@ -80,7 +80,7 @@
                     <div class="cols col-6">
                         <div class="row">
                             <div class="cols col-12 playerName">
-                                <p id="fieldPlayer1" style="display: none" >Player №1:<span id='namePlayer1'></span></p>
+                                <p id="fieldPlayer1" style="display: none" ><span id='number1'>Player №1:</span><span id='namePlayer1'></span></p>
                             </div>
                         </div>
                         <div id='scoreBlack' class="row" style="display: none">
@@ -99,7 +99,7 @@
                     <div class="cols col-6">
                         <div class="row">
                             <div class="cols col-12 playerName">
-                                <p id="fieldPlayer2" style="display: none">Player №2: <span id='namePlayer2'></span></p>
+                                <p id="fieldPlayer2" style="display: none"><span id='number2'>Player №2:</span> <span id='namePlayer2'></span></p>
                             </div>
                         </div>
                         <div id='scoreWhite' class="row"  style="display: none">
@@ -163,11 +163,6 @@
             </div>
 
         </div>
-
-       
-        
-        
-
 
         <div id='ruls' class="row ruls ">
             <div class="cols col-12">
@@ -319,23 +314,29 @@
 
     </div>
     <script type="module" src="../js/model/DataGame.js"></script>
+    <script type="module" src="../js/model/NamesPlayer.js"></script>
+    <script type="module" src="../js/model/NameLocalStorage.js"></script>
     <script type="module" src="../js/model/Score.js"></script>
     <script type="module" src="../js/model/Territory.js"></script>
     <script type="module" src="../js/model/ScoreLocalStorage.js"></script>
     <script type="module" src="../js/model/BoardLocalStorage.js"></script>
     <script type="module" src="../js/model/SearchMoveField.js"></script>
-    <script type="module" src="..js/model/PlayingFieldAnalysis.js"></script>    
     <script type="module" src="../js/model/SaveMoveChanges.js"></script>
-    
-    <script type="module" src="../js/controller/StartHandler.js"></script>
-    <script type="module" src="../js/controller/MakeAMoveHandler.js"></script>
-    <script type="module" src="../js/controller/MakeAMoveHandler.js"></script>
-    <script type="module" src="../js/controller/PassHandler.js"></script>
-    <script type="module" src="js/controller/SurrenderHandler.js"></script>
-   
+    <script type="module" src="../js/model/PlayingFieldAnalysis.js"></script>
+    <script type="module" src="../js/model/CheckPrisoners.js"></script>
+    <script type="module" src="../js/model/VerificationConqueredTerritory.js"></script>
+
     <script type="module" src="../js/view/CreateSelect.js"></script>
     <script type="module" src="../js/view/drawBoard.js"></script>
-    <script type="module" src="../js/view/ViewCurrentDataScore.js"></script>
+    <script type="module" src="../js/view/ViewCurrentPlayer.js"></script>
+    <script type="module" src="../js/view/ViewCurrentData.js"></script>
+    
+    <script type="module" src="../js/controller/StartInitializesHandler.js"></script>
+    <script type="module" src="../js/controller/InputNameHandler.js"></script>
+    <script type="module" src="../js/controller/MakeAMoveHandler.js"></script>
+    <script type="module" src="../js/controller/PassHandler.js"></script>
+    <script type="module" src="../js/controller/SurrenderHandler.js"></script>
+    
     
     <script type="module"  src="../js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript" ></script>

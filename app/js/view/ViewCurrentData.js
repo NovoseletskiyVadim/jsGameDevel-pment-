@@ -51,6 +51,9 @@ export default class ViewCurrentData{
             document.getElementById('fieldPlayer1').style.display='block';
             document.getElementById('fieldPlayer2').style.display='block';
 
+            document.getElementById('number1').style.display='none';
+            document.getElementById('number2').style.display='none';
+            
 
 
             document.getElementById('move').style.display='block';
@@ -95,10 +98,10 @@ export default class ViewCurrentData{
 
             document.getElementById('scoreBlack').style.display='none';
             document.getElementById('scoreWhite').style.display='none';
-            
-            // document.getElementById('player1').style.display='block';
-            // document.getElementById('player2').style.display='block';
 
+            document.getElementById('number1').style.display='block';
+            document.getElementById('number2').style.display='block';
+            
             document.getElementById('move').style.display='none';
             document.getElementById('blockMakeAMove').style.display='none';
 
