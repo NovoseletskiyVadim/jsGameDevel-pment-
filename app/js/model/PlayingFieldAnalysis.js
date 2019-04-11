@@ -1,6 +1,6 @@
 // Describes playing field analysis
 
-import {arrayData}  from '../model/DataGame.js';
+import {arrayData}  from './DataGame.js';
 
 export default class PlayingFieldAnalysis{
 
@@ -164,7 +164,12 @@ export default class PlayingFieldAnalysis{
                 }
                 else{
                 
-                    if(arr[i][b].stateTerritory==0){
+                    if(
+                        arr[i][b].stateTerritory==0 ||
+                        arr[i][b].stateTerritory==1 ||
+                        arr[i][b].stateTerritory==2 ||
+                        arr[i][b].stateTerritory==3 
+                    ){
 
                         checkObj.cheskBreath=true;
                         break;           
@@ -242,7 +247,12 @@ export default class PlayingFieldAnalysis{
                 }
                 else{
 
-                    if(arr[i][b].stateTerritory==0){
+                    if( 
+                        arr[i][b].stateTerritory==0 ||
+                        arr[i][b].stateTerritory==1 ||
+                        arr[i][b].stateTerritory==2 ||
+                        arr[i][b].stateTerritory==3
+                    ){
 
                         checkObj.cheskBreath=true;
                         break;           
@@ -319,7 +329,12 @@ export default class PlayingFieldAnalysis{
 
                 }
                 else{
-                    if(arr[a][j].stateTerritory==0){
+                    if( 
+                        arr[a][j].stateTerritory==0 ||
+                        arr[a][j].stateTerritory==1 ||
+                        arr[a][j].stateTerritory==2 ||
+                        arr[a][j].stateTerritory==3   
+                    ){
 
                         checkObj.cheskBreath=true;
                         break;
@@ -395,7 +410,12 @@ export default class PlayingFieldAnalysis{
                 }
                 else{
 
-                    if(arr[a][j].stateTerritory==0){
+                    if(
+                        arr[a][j].stateTerritory==0 ||
+                        arr[a][j].stateTerritory==1 ||
+                        arr[a][j].stateTerritory==2 ||
+                        arr[a][j].stateTerritory==3 
+                    ){
 
                         checkObj.cheskBreath=true;
                         break;
@@ -475,7 +495,12 @@ export default class PlayingFieldAnalysis{
                 }
                 else{
 
-                    if(arr[i][b].stateTerritory==0){
+                    if(
+                        arr[i][b].stateTerritory==0 ||
+                        arr[i][b].stateTerritory==1 ||
+                        arr[i][b].stateTerritory==2 ||
+                        arr[i][b].stateTerritory==3 
+                    ){
 
                         checkObj.cheskBreath=true;
                         break;           
@@ -530,7 +555,12 @@ export default class PlayingFieldAnalysis{
                     break;
                 }else{
 
-                    if(arr[i][b].stateTerritory==0){
+                    if(
+                        arr[i][b].stateTerritory==0 ||
+                        arr[i][b].stateTerritory==1 ||
+                        arr[i][b].stateTerritory==2 ||
+                        arr[i][b].stateTerritory==3 
+                    ){
 
                         checkObj.cheskBreath=true;
                         break;           
@@ -586,7 +616,12 @@ export default class PlayingFieldAnalysis{
                 }
                 else{
 
-                    if(arr[a][j].stateTerritory==0){
+                    if(
+                        arr[a][j].stateTerritory==0 ||
+                        arr[a][j].stateTerritory==1 ||
+                        arr[a][j].stateTerritory==2 ||
+                        arr[a][j].stateTerritory==3 
+                    ){
 
                         checkObj.cheskBreath=true;
                         break;           
@@ -642,7 +677,12 @@ export default class PlayingFieldAnalysis{
                 }
                 else{
 
-                    if(arr[a][j].stateTerritory==0){
+                    if(
+                        arr[a][j].stateTerritory==0 ||
+                        arr[a][j].stateTerritory==1 ||
+                        arr[a][j].stateTerritory==2 ||
+                        arr[a][j].stateTerritory==3 
+                    ){
 
                         checkObj.cheskBreath=true;
                         break;           
