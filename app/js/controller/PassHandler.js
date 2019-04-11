@@ -1,5 +1,5 @@
 
-// describes pass button  work   
+// describes pass button work   
 
 export default class PassHandler{
 
@@ -16,7 +16,7 @@ export default class PassHandler{
         let that=this;
 
         this.move.onclick=function(){
-            console.log('click pass');
+           
             
             let score=that.ScoreLocalStorageObject.outPutScore();
 
@@ -41,21 +41,40 @@ export default class PassHandler{
 
             };
 
-            let checkPass=that.ScoreLocalStorageObject.outPutScore()
+            let checkPass=that.ScoreLocalStorageObject.outPutScore();
 
             if(checkPass.lastBlackMove==='pass'&& checkPass.lastWhiteMove==='pass'){
 
                 checkPass.phase='endGame';
+
+                let captivityBlack=checkPass.captivityBlack;
+                let captivityWhite=checkPass.captivityWhite;
+                let territoryBlack=checkPass.territoryBlack
+                let territoryWhite=checkPass.territoryWhite;
+
+                let finalResultBlack=territoryBlack-captivityWhite;
+                let finalResultWhite=0.5+territoryWhite-captivityBlack;
+
+                if(finalResultBlack>finalResultWhite){
+
+                    checkPass.victory='black';
+                }
+                else{
+                    checkPass.victory='white';
+                };
+
+
                 that.ScoreLocalStorageObject.saveScore(checkPass);
                 let view=that.viewCurrentDataScore;
                 view.viewScore(checkPass);
                 alert('Игра окончена!!')
 
-            }
+            };
 
-        }
+            console.log('click pass');
+        };
 
 
 
-    }
-}
+    };
+};

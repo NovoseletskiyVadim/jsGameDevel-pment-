@@ -254,8 +254,29 @@ article, aside, figure, footer, header, hgroup, nav, section {
 .buttons {
   margin-top: 4em; }
   .buttons button {
-    width: 80%;
+    width: 40%;
+    display: inline-block;
     height: 3em; }
+  .buttons .start {
+    background-color: chartreuse;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 0.5em; }
+  .buttons .inputNamePlayer {
+    background-color: deepskyblue;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 0.5em; }
+  .buttons .pass {
+    background-color: darkorange;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 0.5em; }
+  .buttons .surrender {
+    background-color: red;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 0.5em; }
 
 .makeAmove div {
   display: inline-block; }
@@ -267,7 +288,70 @@ article, aside, figure, footer, header, hgroup, nav, section {
 .makeAmove button {
   vertical-align: middle;
   width: 20%;
-  height: 2.6em; }
+  height: 2.6em;
+  background-color: darkgreen;
+  color: white;
+  font-weight: bold;
+  border-radius: 0.5em; }
+
+.playField {
+  margin-top: 3em;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  /*Важный параметр. Блоки абсолюта не будут вылазить за этот размер*/
+  height: 100vh; }
+  .playField ul {
+    border: 2px solid blue;
+    display: inline-block;
+    width: 80%;
+    height: 15em;
+    overflow: hidden; }
+  .playField form {
+    background: #000;
+    padding: 3px;
+    display: inline-block;
+    bottom: 0;
+    width: 90%; }
+    .playField form input {
+      border: 0;
+      padding: 10px;
+      width: 90%;
+      margin-right: .5%; }
+    .playField form button {
+      width: 9%;
+      background: #82e0ff;
+      border: none;
+      padding: 10px; }
+  .playField #messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+    .playField #messages li {
+      padding: 5px 10px; }
+    .playField #messages li:nth-child(odd) {
+      background: #eee; }
+
+.ruls {
+  margin-top: 4em; }
+  .ruls h2 {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-size: 2.5em; }
+  .ruls span {
+    color: blue;
+    font-weight: bold; }
+  .ruls h3 {
+    font-size: 2em; }
+  .ruls p {
+    font-size: 1.5em;
+    padding: 1em;
+    text-align: justify;
+    text-indent: 2em; }
+  .ruls .image {
+    display: block;
+    font-weight: bold;
+    color: red; }
 
 @media only screen and (min-width: 280px) and (max-width: 479px) {
   .nameForMobile {

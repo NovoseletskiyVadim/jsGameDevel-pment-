@@ -164,6 +164,8 @@ export default class ViewCurrentData{
 
         function drawPiece(x, y, colorIn, colorBorder) {
 
+            // console.warn('funck draw piece');
+
             // Coordinates on canvas : 
             // x horizontal increasing from left to right
             // y vertical increasing from top to bottom
@@ -174,7 +176,7 @@ export default class ViewCurrentData{
             // Draw piece
             
             that.context.beginPath();
-            that.context.arc(a, b, radius, 0, 2*Math.PI, false);
+            that.context.arc(a, b, radius, 0,2*Math.PI, false);
             that.context.fillStyle = colorIn;
             that.context.fill();
             that.context.lineWidth = 1;
@@ -201,23 +203,49 @@ export default class ViewCurrentData{
                     let obj=arr_rows[j];
                     let y=obj.coord_x;
                     let x=obj.coord_y;
-                    let colorIn=obj.stateTerritory;
+                    let colorIn=null;
                     let colorBorder;
 
-                    if(colorIn=='black'){
-
-                        colorBorder='white';
+                    if(obj.stateTerritory==0){
+                        colorIn ='green';
+                        colorBorder='black';
+                        drawPiece(x,y,colorIn,colorBorder);
+                        continue;
                     }
-                    else{
+                    else if(obj.stateTerritory==1){
+                        colorIn ='red'
+                        colorBorder='black';
+                        drawPiece(x,y,colorIn,colorBorder);
+                    }
+                    else if(obj.stateTerritory==2){
 
-                        colorBorder='black'
-                    };
+                        colorIn='blue'
+                        colorBorder='white';
+                        drawPiece(x,y,colorIn,colorBorder);
+                    }
+                    else if(obj.stateTerritory==3){
+                        colorIn ='yellow';
+                        colorBorder='black';
+                        drawPiece(x,y,colorIn,colorBorder);
 
-                    if(obj.stateTerritory!=0){
-                    
+                    }
+                    else if(obj.stateTerritory=='black'){
+                        
+                        colorIn='black';
+                        colorBorder='black';
+                        drawPiece(x,y,colorIn,colorBorder);
+                        
+
+                        
+                    }
+                    else if(obj.stateTerritory=='white'){
+                        colorIn='white'
+                        colorBorder='black';
                         drawPiece(x,y,colorIn,colorBorder);
 
                     };
+
+                    
                 };
             };
         };

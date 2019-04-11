@@ -1,12 +1,6 @@
 
 // Describes event handler click button "make a move "
  
-/*TODO: 
-
-    работа над обработчивом  кнопки ход
-
-
-*/
 import {arrayData} from '../model/DataGame.js';
 import SearchMoveField from '../model/SearchMoveField.js';
 import CheckBusyField from '../model/CheckBusyField.js';
@@ -14,6 +8,7 @@ import PlayingFieldAnalysis from '../model/PlayingFieldAnalysis.js';
 import SaveMoveChanges from '../model/SaveMoveChanges.js';
 import BoardLocalStorage from '../model/BoardLocalStorage.js'
 import CheckPrisoners from '../model/CheckPrisoners.js';
+import VerificationConqueredTerritory from '../model/VerificationConqueredTerritory.js';
 import DrawingBoard from '../view/DrawBoard.js';
 
 export default class MakeAMoveHandler{
@@ -29,6 +24,7 @@ export default class MakeAMoveHandler{
         this.boardLocalStorage = new BoardLocalStorage();
         this.playingFieldAnalysis=new PlayingFieldAnalysis();
         this.checkPrisoners=new CheckPrisoners();
+        this.verificationTerritory=new VerificationConqueredTerritory();
         this.drawingBoard=new DrawingBoard();
         this.data=arrayData;
         
@@ -87,17 +83,15 @@ export default class MakeAMoveHandler{
 
                         let result=null;
                         
+                        // check all dead enemy of stones(white)++++++++++++
                         for(let i=0; i<that.data.rows;i++){
                                                         
                             for(let j=0 ; j<that.data.cols; j++){
                                 
                                 if(arr[i][j].stateTerritory=='white'){
                                     
-                                    // TODO: метод checkPrisoners
-
                                     result=that.checkPrisoners.analysisPrisoners(arr[i][j],checkCurrentBoard); 
                                     
-
                                     if(result.cheskBreath==false){
 
                                         score.captivityWhite+=1;
@@ -114,24 +108,60 @@ export default class MakeAMoveHandler{
                         // re-drawing board
                         that.drawingBoard.reDrawingBoard(that.data.canvas.getContext('2d'));
 
+                        // save all dead stones
                         for(let i=0 ;i<=arrDeadStonesWhite.length;i++){
                            
                             if(arrDeadStonesWhite[i]!=undefined){
-                                // console.error('element i='+i);
-                                // console.dir(arrDeadStones[i]);
-                                arrDeadStonesWhite[i].stateTerritory=0;
-                                
+
+                                arrDeadStonesWhite[i].stateTerritory=0;                                
                                 that.saveMoveChanges.saveChangeObject(arrDeadStonesWhite[i]);
                             }
 
                         };
 
-                        
+                        //  territory recalculation
+                        let arrObjects=that.boardLocalStorage.outPutBoard();
+                        that.verificationTerritory.verificationConqueredTerritory(arrObjects);
 
+                        // zeroing count 
+                        score.territoryBlack=0;
+                        score.territoryWhite=0;
+
+                        // counting territory
+                        for(let i=0; i<that.data.rows;i++){
+
+                            let arr_row=arrObjects[i];
+
+                            
+                            for(let j=0;j<that.data.cols;j++){
+
+                                
+                                let territory=arr_row[j].stateTerritory;
+
+
+                                if( territory==1||
+                                    territory=='black'
+                                ){
+                                    score.territoryBlack+=1;
+                                }
+                                else if (
+                                    territory==2||
+                                    territory=='white'
+                                ){
+                                    score.territoryWhite+=1;
+                                };
+
+                            };
+                        };
+
+                        
+                        // save current score
                         that.scoreLocalStorage.saveScore(score);
 
+                        // writes our turn after checking
                         that.saveMoveChanges.saveChangeObject(resultAnalitics);
 
+                        // zeroing
                         arrDeadStonesWhite.length=0;
                     }
 
@@ -157,8 +187,6 @@ export default class MakeAMoveHandler{
                     let checkCurrentBoard=that.boardLocalStorage.outPutBoard();
                     let checkCurrentObj=checkBusy;
 
-                    // let fieldAnalitics=this.playingFieldAnalysis
-
                     let resultAnalitics=that.playingFieldAnalysis.analysisSyiside(checkCurrentObj,checkCurrentBoard)
 
                     if(resultAnalitics.stateTerritory==0){
@@ -179,14 +207,13 @@ export default class MakeAMoveHandler{
 
                         let result=null;
 
+                        // check all dead enemy of stones(black)++++++++++++
                         for(let i=0; i<that.data.rows;i++){
                                                         
                             for(let j=0 ; j<that.data.cols; j++){
                                 
                                 if(arr[i][j].stateTerritory=='black'){
                                     
-                                    // TODO: метод checkPrisoners
-
                                     result=that.checkPrisoners.analysisPrisoners(arr[i][j],checkCurrentBoard); 
 
                                     if(result.cheskBreath==false){
@@ -203,9 +230,10 @@ export default class MakeAMoveHandler{
 
                         };
 
-
+                        // re-drawing board
                         that.drawingBoard.reDrawingBoard(that.data.canvas.getContext('2d'));
 
+                        // save all dead stones
                         for(let i=0 ;i<=arrDeadStonesBlack.length;i++){
                            
                             if(arrDeadStonesBlack[i]!=undefined){
@@ -217,12 +245,50 @@ export default class MakeAMoveHandler{
 
                         };
                         
+                       //territory recalculation
+                       let arrObjects=that.boardLocalStorage.outPutBoard();
+                       that.verificationTerritory.verificationConqueredTerritory(arrObjects);
                        
+                       // zeroing count 
+                       score.territoryBlack=0;
+                       score.territoryWhite=0;
+
+                        //conting terretory    
+                        for(let i=0; i<that.data.rows;i++){
+
+                            let arr_row=arrObjects[i];
+
+                            
+                            for(let j=0;j<that.data.cols;j++){
+
+                                
+                                let territory=arr_row[j].stateTerritory;
+
+
+                                if( territory==1||
+                                    territory=='black'
+                                ){
+                                    score.territoryBlack+=1;
+                                }
+                                else if (
+                                    territory==2||
+                                    territory=='white'
+                                ){
+                                    score.territoryWhite+=1;
+                                };
+
+                            };
+                        };
 
 
 
+                        // save current score
                         that.scoreLocalStorage.saveScore(score);
+
+                        // writes our turn after checking 
                         that.saveMoveChanges.saveChangeObject(resultAnalitics);
+
+                        // zeroing
                         arrDeadStonesBlack.length=0;
                     }
 
@@ -235,8 +301,6 @@ export default class MakeAMoveHandler{
 
                     checkBusy.stateTerritory='white';
                     that.saveMoveChanges.saveChangeObject(checkBusy);
-
-
     
                     let currentScore=that.scoreLocalStorage.outPutScore();
                     reView.viewScore(currentScore);
@@ -246,6 +310,7 @@ export default class MakeAMoveHandler{
             };            
             console.log('click make a move');
         };
+
     };
 };
 

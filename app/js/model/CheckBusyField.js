@@ -14,7 +14,13 @@ export default class CheckBusyField{
 
     checkBusyField(objectField){
 
-        if(objectField.stateTerritory==0){
+        if(
+            objectField.stateTerritory==0 ||
+            objectField.stateTerritory==1 ||
+            objectField.stateTerritory==2 ||
+            objectField.stateTerritory==3 
+
+        ){
 
             return objectField;
         }
